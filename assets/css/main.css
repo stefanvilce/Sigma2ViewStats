@@ -1,0 +1,10 @@
+body {
+  /*
+  background-image: url("https://archive.sigma2.no/resources/images/norstore_front_page.png");
+  background-repeat: repeat;
+  */
+
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 5000px;
+
+}

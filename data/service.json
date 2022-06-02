@@ -1,0 +1,101 @@
+{"service": {
+    "creators":[
+        {"creator":
+            {"givenName": "Jeremy",
+            "familyName": "Cook",
+            "nameIdentifier": {
+                "ORCID": "0000-0002-9439-7736"
+            },
+            "affiliation": "NORCE"}
+        },
+        {"creator": 
+            {"givenName": "Gro", 
+            "familyName": "Fonnes",
+            "nameIdentifier": {
+                "ORCID": "0000-0002-5191-5417"
+            },
+            "affiliation": "NORCE"}
+        },
+        {"creator": 
+            {"givenName": "Tor", 
+            "familyName": "Langeland",
+            "nameIdentifier": {
+                "ORCID": "0000-0003-2948-5761"
+            },
+            "affiliation": "NORCE"}
+        },
+        {"creator":
+            {"givenName": "Jorgen",
+            "familyName": "Berge",
+            "nameIdentifier": {
+                "ORCID": "0000-0003-0900-5679"
+            },
+            "affiliation": "University of Tromsø"}
+        }
+    ]},
+    "titles": [{"title": "Svalbard time series data portal", "subtitle": "A visualisation and download portal for oceanographic and atmospheric data from Svalbard."}],
+    "publisher": "UNINETT Sigma2",
+    "publicationYear": "2022",
+    "language": "en-us",
+    "InteractiveResource": "Data portal",
+    "contributors": [
+        {"contributor": {
+            "type": "DataCurator",
+            "contributorName": "Vogedes, Daniel Ludwig",
+            "givenName": "Daniel Ludwig",
+            "familyName": "Vogedes",
+            "nameIdentifier": {
+                "ORCID": "0000-0002-3814-1365"
+            },
+            "affiliation": "University of Tromsø"
+        }},
+        {"contributor": {
+            "type": "DataCurator",
+            "contributorName": "Kopec, Tomasz Piotr",
+            "givenName": "Tomasz Piotr",
+            "familyName": "Kopec",
+            "nameIdentifier": {
+                "ORCID": "0000-0002-3164-6838"
+            },
+            "affiliation": "University of Tromsø"
+        }},
+        {"contributor": {
+            "type": "HostingInstitution",
+            "contributorName": "Sikt Sigma2"
+        }},
+        {"contributor": {
+            "type": "Other",
+            "contributorName": "Kalhovd, Siri",
+            "givenName": "Siri",
+            "familyName": "Kalhovd",
+            "nameIdentifier": {
+                "ORCID": "0000-0003-3843-7999"
+            },
+            "affiliation": "University of Bergen"
+        }}
+    ],
+    "dates": [{"status": "Available", "date": "2021-03-24"}],
+    "descriptions": [
+        {"abstract": " Interactive visual analysis of oceanographic and atmospheric data acquired from observatories in Svalbard fjords (predominantly Kongsfjorden and Rijpfjorden) as well as from drifting ice tethered platforms and kland-based observatories. Data can be analysed using the web interface or downloaded for local processing. Collections in Kongsfjorden have started in 2002, Rijpfjorden 2006 and at the light observatory in Ny-Ålesund in 2017. New data will be amended every year. All data is published with CC-BY-4.0 licence, allowing re-use for any purpose."}
+    ],
+    "fundingReferences": [
+        {"fundingReference": {
+            "name": "Research Council of Norway",
+            "awardURI": "https://prosjektbanken.forskningsradet.no/project/FORISS/244319?Kilde=FORISS&distribution=Ar&chart=bar&calcType=projects&Sprak=no&sortBy=score&sortOrder=desc&resultCount=30&offset=0&Fritekst=244319",
+            "awardTitle": "Arctic Ocean ecosystems - Applied technology, Biological interactions and Consequences in an era of abrupt climate change"
+            }
+        },
+        {"fundingReference": {
+            "name": "Research Council of Norway",
+            "awardURI": "https://prosjektbanken.forskningsradet.no/project/FORISS/300333?Kilde=FORISS&distribution=Ar&chart=bar&calcType=projects&Sprak=no&sortBy=score&sortOrder=desc&resultCount=30&offset=0&Fritekst=300333",
+            "awardTitle": "The impact of artificial light on arctic marine organisms and ecosystems during the polar night"
+            }
+        }
+    ],
+    "rights": [
+        {
+            "rightsURI": "https://creativecommons.org/licenses/by/4.0/legalcode",
+            "name": "CC-By-4.0"
+        }
+    ]
+}
