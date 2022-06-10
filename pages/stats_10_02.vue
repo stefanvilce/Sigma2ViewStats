@@ -43,7 +43,6 @@ import * as d3 from "d3";
 
 export default {
     data() {
-        console.time("The time to requests");
         return {
             articles: [],
             nr: 0, 
@@ -72,16 +71,6 @@ export default {
                     };
                 this.articles.push(getArticle);               
             }
-            /*            
-            if (typeof window !== 'undefined') {
-            console.log('You are on the browser')
-            // 👉️ can use localStorage here
-            } else {
-            console.log('You are on the server')
-            // 👉️ can't use localStorage
-            // https://bobbyhadz.com/blog/javascript-referenceerror-localstorage-is-not-defined
-            }*/
-
         }).then(() => { console.log("We got this number of documents: " + this.nr); }).then(this.getLink).then(() => { console.timeEnd("The time to requests") }); // I have to remember to write this.getLink or () => this.getLink(), but no this.getLink(); because it will not wait for asyncron  
         // You will be able to access articles anywhere with this.articles and loop them v-for inside your template
     },
