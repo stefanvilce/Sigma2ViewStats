@@ -44,8 +44,6 @@ import util from '~/assets/js/util.js';
 
 const fs = require("fs");
 
-
-
 export default {
     data() {
         return {
@@ -87,7 +85,7 @@ export default {
 
 
     methods: {
-               
+
         async getLink(){
             var linkNext_Page = this.linkNext_Page;
             if(linkNext_Page.length > 5){ // it has be not null or not Equal with "NULL"
@@ -114,7 +112,6 @@ export default {
             }
         },
 
-
         saveInCache(){
             var today = new Date();        
             let cacheResponse = { 
@@ -127,8 +124,7 @@ export default {
                 if (err) throw err;
                 console.log('Data written to file, in CACHE file.');
             });
-        },  //saveInCache()
-
+        },
 
         checkCacheSync(){
             // this function check if the CACHE file exists and if the age of the file is still good to keep the data
@@ -145,7 +141,6 @@ export default {
                 return false;
             }
         },
-
 
         generateBars() {
             // set the dimensions and margins of the graph

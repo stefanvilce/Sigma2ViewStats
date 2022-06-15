@@ -1,5 +1,5 @@
 {
-  "createdAtDateTime": "2022-06-10T07:55:34.167Z",
+  "createdAtDateTime": "2022-06-15T09:19:40.913Z",
   "description": "This json file keeps the data we took from REST APIs and it is used as a CACHE on the server side.",
   "data": [
     {
@@ -2079,6 +2079,12 @@
       "datepublished": "2018-08-28"
     },
     {
+      "doi": "10.11582/2022.00032",
+      "extent": 76002568,
+      "subject": "NATURAL_SCIENCE - Plasma physics",
+      "datepublished": "2022-06-10"
+    },
+    {
       "doi": "10.11582/2021.00095",
       "extent": 1861985234548,
       "subject": "NATURAL_SCIENCE - Oceanography",
@@ -2389,6 +2395,12 @@
       "extent": 668363952970,
       "subject": "NATURAL_SCIENCE - Meteorology",
       "datepublished": "2019-10-23"
+    },
+    {
+      "doi": "10.11582/2022.00033",
+      "extent": 16502903789764,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2022-06-14"
     },
     {
       "doi": "10.11582/2021.00139",
