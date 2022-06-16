@@ -19,17 +19,11 @@
                         <td class="border px-4 py-2">{{art.datepublished}}</td>
                     </tr>
                 </table -->
-
-                <div class="lg:col-span-12"> 
-                    &nbsp;
-                </div>            
-
+                
                 <div class="lg:col-span-12"> 
                     <svg id="d3_demo"></svg>
                 </div>
-
                 &nbsp;
-
                 <!-- Create a div where the graph will take place -->
                 <div id="my_dataviz"></div>
 
@@ -52,6 +46,7 @@ export default {
             linkNext_Page: ""
         }
     },
+
     async fetch() {
         if(!this.checkCacheSync()){
             //await fetch("https://staging.web.archive-api.sigma2.no/api/list/dataset/doi/").then((res) => res.json().then((r) => {
@@ -61,9 +56,8 @@ export default {
                 return r;
             })).then(async (pagina) => {
                 const articles = pagina;
-                //console.log(JSON.stringify(articles.Documents));
                 for(var i=0; i < articles.Documents.length; i++){
-                    var r = articles.Documents[i]; console.log(" **** RRR " + JSON.stringify(r, 4, 0));
+                    var r = articles.Documents[i];
                     var getArticle = { 
                         doi: r.Identifier, 
                         extent: r.Extent,
@@ -76,16 +70,18 @@ export default {
             // You will be able to access articles anywhere with this.articles and loop them v-for inside your template
         }
     },
+
     
     mounted() {
-        this.generateBars(); //https://www.freecodecamp.org/news/d3js-tutorial-data-visualization-for-beginners/
+        this.generateBars(); //https://www.freecodecamp.org/news/d3js-tutorial-data-visualization-for-beginners/    
     },
-    methods: { 
-       
+
+
+    methods: {
+
         async getLink(){
             var linkNext_Page = this.linkNext_Page;
             if(linkNext_Page.length > 5){ // it has be not null or not Equal with "NULL"
-                console.log("Linkul este mai mare decat 5");
                 await fetch(linkNext_Page).then((res) => res.json().then((r) => {
                     this.linkNext_Page = r.Next_Page;
                     return r;
@@ -123,6 +119,7 @@ export default {
             });
         },
 
+
         checkCacheSync(){
             // this function check if the CACHE file exists and if the age of the file is still good to keep the data
             // and read the data from cache file
@@ -140,7 +137,6 @@ export default {
         },
 
 
-        //https://www.freecodecamp.org/news/d3js-tutorial-data-visualization-for-beginners/
         generateBars() {
             // set the dimensions and margins of the graph
             const margin = { top: 40, right: 50, bottom: 55, left: 90 },
@@ -152,49 +148,58 @@ export default {
             svg
             .append("text")
             .attr("x", width / 2)
-            .attr("y", margin.top + 2)
+            .attr("y", margin.top - 3)
             .attr("class", "title")
             .attr("text-anchor", "middle")
             .style("font-size", "36px")
             .style("text-decoration", "none")
             .style("font-weight", "bold")
-            .style("text-shadow", "0 1px 5px #FFFFFF")
+            .style("color", "#434376")
             .attr("fill", "#FFB500")
-            .text("No. of Datasets / Published date");
+            .text("Total size (extent, cumulative) / Published year");
                        
             // Add the text label for the y axis
             svg.append("text")
-                .attr("x", 102)
-                .attr("y", margin.top + 12)
+                .attr("x", 36)
+                .attr("y", margin.top + 66)
                 .style("text-anchor", "left")
-                .style("font-size", "20px")
-                .style("font-weight", "bold")
-                .style("color", "#87A3C3")
-                .style("text-shadow", "0 1px 5px #FFFFFF")
-                .attr("fill", "#87A3C3")
-                .text("No. of Datasets");
+                .style("font-size", "22px")
+                .style("color", "red")
+                .text("GB");
                 
             // Add the text label for the x axis
             svg.append("text")
-                .attr("x", width - 160)
-                .attr("y", height - 80)
-                .style("font-size", "20px")
-                .style("color", "#87A3C3")
-                .style("font-weight", "bold")
-                .attr("fill", "#87A3C3")
-                .style("text-shadow", "0 1px 5px #FFFFFF")
-                .text("Published Date");
+                .attr("x", width - 115)
+                .attr("y", height - 72)
+                .style("font-size", "22px")
+                .style("color", "#B2B2CD")
+                .text("Year");
 
             const x_scale = d3
             .scaleBand()
             .range([margin.left, width - margin.right])
             .padding(0.1);
 
-            const y_scale = d3.scaleLinear().range([height - margin.bottom, margin.top]); 
+            const y_scale = d3.scaleLinear().range([height - margin.bottom, margin.top + 61]);
             let x_axis = d3.axisBottom(x_scale);
-            let y_axis = d3.axisLeft(y_scale); 
-            y_axis.tickPadding(4);
-            x_axis.tickFormat(d3.timeFormat("%b"));
+            let y_axis = d3.axisLeft(y_scale);
+            y_axis.tickPadding(10);
+            
+            
+            
+
+            // create a tooltip
+            var tooltip = svg.append("line")
+                .style("stroke", "#98A3C3")
+                .style("stroke-width", 1)
+                .style("opacity", 0)
+                .attr("y1", height - 60);
+
+            var tooltip2 =  svg.append('line')
+                .style("stroke", "#98A3C3")
+                .style("stroke-width", 1)
+                .style("opacity", 0)
+                .attr("x1", 90);
             
             var data = this.articles;
 
@@ -205,54 +210,26 @@ export default {
                     return 1;
                 }
             });
-           
-            // Counting the occurences
-            var nested_data = d3.rollups(data, v => v.length, d => d.datepublished).map(([k, v]) => ({ DateP: k, Sumextent: v }));
-            //console.log(d3.rollups(data, v => v.length, d => d.datepublished));
+            //Summing the data from the same month.
+            var nested_data =  d3.rollups(data, v => d3.sum(v, d => d.extent) ,  d => d.datepublished.substring(0,4)).map(([k, v]) => ({ DateP: k, Sumextent: v }));
+            
+            //The new array of objects which will build the array which shall contain the SUMS of EXTENTS until the index DATE. 
+            //It means that it is summing / cumulative
             var dateNew = [];
-            for(let i = 0; i < nested_data.length; i++){
-                var noOfOccurences = nested_data[i].Sumextent;
-                let rec = { datepublished: nested_data[i].DateP, occurences: noOfOccurences }
+            var previousExtent = 0;
+            for(let i=0; i<nested_data.length; i++){
+                previousExtent = previousExtent + nested_data[i].Sumextent;
+                let rec = { datepublished: nested_data[i].DateP, extent: previousExtent }
                 dateNew.push(rec);
             }
 
-            dateNew.forEach((d) => (d.occurences = +d.occurences));
+            // SUMARIZAREA:
+            // https://stackoverflow.com/questions/50454720/d3-grouping-and-summarization
+
+            dateNew.forEach((d) => (d.extent = +d.extent/1000000000));
             // Scale the range of the data in the domains
             x_scale.domain(dateNew.map((d) => d.datepublished));
-            y_scale.domain([0, d3.max(dateNew, (d) => d.occurences) * 1.65 ]); // I have multiplied wiht 1.65 becouse we need a higher Oy axis to keep the title of the chart visible and clean
-
-            // Add the circles
-            svg.selectAll("myCircles")
-            .data(dateNew)
-            .enter()
-            .append("circle")
-                .attr("fill", "#87A3C3")
-                .attr("stroke", "none")
-                .attr("cx", (d) => x_scale(d.datepublished) + x_scale.bandwidth()/2)
-                .attr("cy", (d) => y_scale(d.occurences))
-                .attr("r", 8);
-                //.attr("r", x_scale.bandwidth()/40);
-            
-
-            // append x axis
-            svg
-            .append("g")
-            .attr("transform", `translate(0,${height - margin.bottom})`)
-            .call(x_axis)
-            .selectAll("text")
-            .style("text-anchor", "middle")
-            .style("font-size", "24px")
-            .style("letter-spacing", "-1px")
-            .attr("dx", "0.2em")
-            .attr("dy", "1.80em")
-            .attr("transform", "rotate(0)");
-
-            // add y axis
-            svg.append("g")
-            .attr("transform", `translate(${margin.left},0)`)
-            .style("font-size", "22px")
-            .style("color", "#87A3C3")
-            .call(y_axis);
+            y_scale.domain([0, d3.max(dateNew, (d) => d.extent) * 1.45]);
 
 
             // Add the line chart
@@ -260,12 +237,76 @@ export default {
             .datum(dateNew)
             .attr("fill", "none")
             .attr("stroke", "#87A3C3")
-            .attr("stroke-width", 3.2)
+            .attr("stroke-width", 2.2)
             .attr("d", d3.line()
                 .x(function(d) { return x_scale(d.datepublished) + x_scale.bandwidth()/2 })
-                .y(function(d) { return y_scale(d.occurences) })
-                )
-       }
+                .y(function(d) { return y_scale(d.extent) })
+            );
+
+
+            // Add the circles
+            svg.selectAll("myCircles")
+            .data(dateNew)
+            .enter()
+            .append("circle")
+                .attr("fill", "#7687CD")
+                .attr("stroke", "no")
+                .attr("cx", (d) => x_scale(d.datepublished) + x_scale.bandwidth()/2)
+                .attr("cy", (d) => y_scale(d.extent))
+                .attr("r", 10)
+                .on("mouseover", function(d) {
+                    
+                    tooltip2.transition()		
+                        .duration(200)		
+                        .style("opacity", 0.8)
+                        .attr("y1", d3.select(this).attr("cy"))
+                        .attr("x2", d3.select(this).attr("cx"))
+                        .attr("y2", d3.select(this).attr("cy"));
+
+                    tooltip.transition()		
+                        .duration(200)		
+                        .style("opacity", 0.8)
+                        .attr("y2", d3.select(this).attr("cy"))
+                        .attr("x1", d3.select(this).attr("cx"))
+                        .attr("x2", d3.select(this).attr("cx"));
+
+                    })					
+                .on("mouseout", function(d) {
+                    tooltip.transition()		
+                        .duration(1000)		
+                        .style("opacity", 0);
+                    tooltip2.transition()		
+                        .duration(1500)		
+                        .style("opacity", 0);	
+                });
+          
+
+
+            // Follow this: https://bl.ocks.org/d3noob/a22c42db65eb00d4e369
+
+            // add x axis labels
+            svg
+            .append("g")
+            .attr("transform", `translate(0,${height - margin.bottom})`)
+            .call(x_axis)
+            .selectAll("text")
+            .style("text-anchor", "middle")
+            .style("font-size", "15px")
+            .style("letter-spacing", "-1px")
+            .attr("dx", "-2.01em")
+            .attr("dy", "0.20em")
+            .attr("transform", "rotate(-75)");
+
+
+            // add y axis
+            svg.append("g")
+            .attr("transform", `translate(${margin.left},0)`)
+            .style("font-size", "16px")
+            .style("color", "#6576CA")
+            .style("letter-spacing", "-1px")
+            .call(y_axis);            
+
+       },
 
     }
 }
@@ -276,7 +317,7 @@ export default {
     .bara {
         fill: #5678B2; border: 2px solid #232354;
     }
-    .title { color: orange; font-size: 46px; margin-top: -15px; }
+    .title { color: orange; font-size: 41px; margin-top: -10px; }
 </style>
 
 <style scoped>
@@ -325,8 +366,6 @@ export default {
 .highlight {
             fill: orange;
         }
-
-
 
 </style>
 

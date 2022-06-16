@@ -5,7 +5,7 @@
                 <h2 class="lg:col-span-9 mb-3 text-current font-medium text-4xl">View Stats</h2>
                 <span class="lg:col-span-3 mb-2 lg:mb-0"> </span>           
 
-                <!-- table class="shadow-lg bg-white lg:col-span-12">
+                <!--table class="shadow-lg bg-white lg:col-span-12">
                     <tr>
                         <th class="bg-blue-100 border text-left px-4 py-4">DOI</th>
                         <th class="bg-blue-100 border text-left px-4 py-4">Extent</th>
@@ -44,6 +44,7 @@ import util from '~/assets/js/util.js';
 
 const fs = require("fs");
 
+
 export default {
     data() {
         return {
@@ -52,18 +53,20 @@ export default {
             linkNext_Page: ""
         }
     },
+
+    
     async fetch() {
         if(!this.checkCacheSync()){
-            //await fetch("https://staging.web.archive-api.sigma2.no/api/list/dataset/doi/").then((res) => res.json().then((r) => {
             await fetch("https://search-api.web.sigma2.no/norstore-archive/metadata/api/basic-search?query=*").then((res) => res.json().then((r) => {
+            //await fetch("http://search-api.web.sigma2.no/norstore-archive/metadata/api/basic_search/next?token=e06096c2-8545-4360-a466-e13f9dc4916c&page=0").then((res) => res.json().then((r) => {
+                console.log("This is the first request. Page 0.");            
                 this.nr = r.Total_Documents;
                 this.linkNext_Page = r.Next_Page;
                 return r;
             })).then(async (pagina) => {
                 const articles = pagina;
-                //console.log(JSON.stringify(articles.Documents));
                 for(var i=0; i < articles.Documents.length; i++){
-                    var r = articles.Documents[i]; console.log(" **** RRR " + JSON.stringify(r, 4, 0));
+                    var r = articles.Documents[i];
                     var getArticle = { 
                         doi: r.Identifier, 
                         extent: r.Extent,
@@ -79,16 +82,19 @@ export default {
     
     mounted() {
         this.generateBars(); //https://www.freecodecamp.org/news/d3js-tutorial-data-visualization-for-beginners/
+        console.timeEnd("D3");
     },
     methods: { 
        
         async getLink(){
+            
+            console.timeLog("The time to requests");
             var linkNext_Page = this.linkNext_Page;
             if(linkNext_Page.length > 5){ // it has be not null or not Equal with "NULL"
-                console.log("Linkul este mai mare decat 5");
                 await fetch(linkNext_Page).then((res) => res.json().then((r) => {
                     this.linkNext_Page = r.Next_Page;
-                    return r;
+                    console.log("The request for Page no. " + r.Page);
+                    return r; 
                 })).then(async (pagina) => {
                     const articles = pagina;
                     for(var i=0; i < articles.Documents.length; i++){
@@ -101,15 +107,13 @@ export default {
                             };
                         this.articles.push(getArticle);                    
                     }
-                    console.log("We read the page no: " + articles.Page);
                 }).then(this.getLink);
             } else {
-                console.log("I have read all the pages in the source. " + linkNext_Page);
+                console.log("I have read all the pages in the source. ");
             }
         },
 
-
-        saveInCache(){
+         saveInCache(){
             var today = new Date();        
             let cacheResponse = { 
                 createdAtDateTime: today,
@@ -140,8 +144,8 @@ export default {
         },
 
 
-        //https://www.freecodecamp.org/news/d3js-tutorial-data-visualization-for-beginners/
         generateBars() {
+            console.time("D3");
             // set the dimensions and margins of the graph
             const margin = { top: 40, right: 50, bottom: 55, left: 90 },
             width = document.querySelector("body").clientWidth,
@@ -160,7 +164,7 @@ export default {
             .style("font-weight", "bold")
             .style("text-shadow", "0 1px 5px #FFFFFF")
             .attr("fill", "#FFB500")
-            .text("No. of Datasets / Published date");
+            .text("Total Datasets / Year");
                        
             // Add the text label for the y axis
             svg.append("text")
@@ -172,18 +176,17 @@ export default {
                 .style("color", "#87A3C3")
                 .style("text-shadow", "0 1px 5px #FFFFFF")
                 .attr("fill", "#87A3C3")
-                .text("No. of Datasets");
+                .text("Total Datasets");
                 
             // Add the text label for the x axis
             svg.append("text")
-                .attr("x", width - 160)
-                .attr("y", height - 80)
-                .style("font-size", "20px")
-                .style("color", "#87A3C3")
+                .attr("x", width - 128)
+                .attr("y", height - 60)
+                .style("font-size", "18px")
                 .style("font-weight", "bold")
-                .attr("fill", "#87A3C3")
+                .attr("fill", "#333333")
                 .style("text-shadow", "0 1px 5px #FFFFFF")
-                .text("Published Date");
+                .text("Year");
 
             const x_scale = d3
             .scaleBand()
@@ -193,12 +196,9 @@ export default {
             const y_scale = d3.scaleLinear().range([height - margin.bottom, margin.top]); 
             let x_axis = d3.axisBottom(x_scale);
             let y_axis = d3.axisLeft(y_scale); 
-            y_axis.tickPadding(4);
-            x_axis.tickFormat(d3.timeFormat("%b"));
             
             var data = this.articles;
-
-            data.sort((a, b) => { // Sorting the datepublished 
+            data.sort((a, b) => {
                 if (a.datepublished < b.datepublished) {
                     return -1;
                 } else {
@@ -206,8 +206,10 @@ export default {
                 }
             });
            
+
+           
             // Counting the occurences
-            var nested_data = d3.rollups(data, v => v.length, d => d.datepublished).map(([k, v]) => ({ DateP: k, Sumextent: v }));
+            var nested_data = d3.rollups(data, v => v.length, d => d.datepublished.substring(0, 4)).map(([k, v]) => ({ DateP: k, Sumextent: v }));
             //console.log(d3.rollups(data, v => v.length, d => d.datepublished));
             var dateNew = [];
             for(let i = 0; i < nested_data.length; i++){
@@ -216,10 +218,21 @@ export default {
                 dateNew.push(rec);
             }
 
+
+            // Counting the occurences
+            var nested_data = d3.rollups(data, v => v.length, d => d.datepublished.substring(0, 4)).map(([k, v]) => ({ DateP: k, Sumextent: v }));
+            var dateNew = [];            
+            var noOfOccurences = 0;
+            for(let i = 0; i < nested_data.length; i++){
+                var noOfOccurences = noOfOccurences + nested_data[i].Sumextent;
+                let rec = { datepublished: nested_data[i].DateP, occurences: noOfOccurences }
+                dateNew.push(rec);
+            }
+
             dateNew.forEach((d) => (d.occurences = +d.occurences));
             // Scale the range of the data in the domains
             x_scale.domain(dateNew.map((d) => d.datepublished));
-            y_scale.domain([0, d3.max(dateNew, (d) => d.occurences) * 1.65 ]); // I have multiplied wiht 1.65 becouse we need a higher Oy axis to keep the title of the chart visible and clean
+            y_scale.domain([0, d3.max(dateNew, (d) => d.occurences) * 1.25 ]); // I have multiplied wiht 1.65 becouse we need a higher Oy axis to keep the title of the chart visible and clean
 
             // Add the circles
             svg.selectAll("myCircles")
@@ -230,7 +243,7 @@ export default {
                 .attr("stroke", "none")
                 .attr("cx", (d) => x_scale(d.datepublished) + x_scale.bandwidth()/2)
                 .attr("cy", (d) => y_scale(d.occurences))
-                .attr("r", 8);
+                .attr("r", 5);
                 //.attr("r", x_scale.bandwidth()/40);
             
 
@@ -241,16 +254,16 @@ export default {
             .call(x_axis)
             .selectAll("text")
             .style("text-anchor", "middle")
-            .style("font-size", "24px")
+            .style("font-size", "16px")
             .style("letter-spacing", "-1px")
-            .attr("dx", "0.2em")
-            .attr("dy", "1.80em")
-            .attr("transform", "rotate(0)");
+            .attr("dx", "-1.9em")
+            .attr("dy", "0.20em")
+            .attr("transform", "rotate(-75)");
 
             // add y axis
             svg.append("g")
             .attr("transform", `translate(${margin.left},0)`)
-            .style("font-size", "22px")
+            .style("font-size", "24px")
             .style("color", "#87A3C3")
             .call(y_axis);
 
@@ -266,8 +279,7 @@ export default {
                 .y(function(d) { return y_scale(d.occurences) })
                 )
        }
-
-    }
+    } 
 }
 </script>
 

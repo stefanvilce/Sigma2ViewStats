@@ -1,0 +1,2424 @@
+{
+  "createdAtDateTime": "2022-06-15T09:19:40.913Z",
+  "description": "This json file keeps the data we took from REST APIs and it is used as a CACHE on the server side.",
+  "data": [
+    {
+      "doi": "10.11582/2016.00002",
+      "extent": 590216471542,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2016-09-15"
+    },
+    {
+      "doi": "10.11582/2016.00009",
+      "extent": 84369759452,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2016-11-28"
+    },
+    {
+      "doi": "10.11582/2016.00008",
+      "extent": 84724460040,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2016-11-25"
+    },
+    {
+      "doi": "10.11582/2016.00013",
+      "extent": 84307593096,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2016-12-05"
+    },
+    {
+      "doi": "10.11582/2016.00010",
+      "extent": 84388036944,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2016-12-05"
+    },
+    {
+      "doi": "10.11582/2016.00011",
+      "extent": 84369778440,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2016-12-05"
+    },
+    {
+      "doi": "10.11582/2016.00012",
+      "extent": 84388036944,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2016-12-05"
+    },
+    {
+      "doi": "10.11582/2016.00007",
+      "extent": 78925082928,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2016-11-22"
+    },
+    {
+      "doi": "10.11582/2017.00003",
+      "extent": 5908392945854,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2017-03-16"
+    },
+    {
+      "doi": "10.11582/2017.00022",
+      "extent": 11787768237945,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2017-10-30"
+    },
+    {
+      "doi": "10.11582/2021.00017",
+      "extent": 30090338,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2021-03-12"
+    },
+    {
+      "doi": "10.11582/2021.00019",
+      "extent": 28058493,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2021-03-22"
+    },
+    {
+      "doi": "10.11582/2021.00047",
+      "extent": 383100,
+      "subject": "NATURAL_SCIENCE - Optics",
+      "datepublished": "2021-05-19"
+    },
+    {
+      "doi": "10.11582/2021.00049",
+      "extent": 403580,
+      "subject": "NATURAL_SCIENCE - Optics",
+      "datepublished": "2021-05-19"
+    },
+    {
+      "doi": "10.11582/2021.00048",
+      "extent": 403580,
+      "subject": "NATURAL_SCIENCE - Optics",
+      "datepublished": "2021-05-19"
+    },
+    {
+      "doi": "10.11582/2021.00039",
+      "extent": 441748483,
+      "subject": "NATURAL_SCIENCE - Optics",
+      "datepublished": "2021-05-19"
+    },
+    {
+      "doi": "10.11582/2021.00050",
+      "extent": 403570,
+      "subject": "NATURAL_SCIENCE - Optics",
+      "datepublished": "2021-05-19"
+    },
+    {
+      "doi": "10.11582/2021.00027",
+      "extent": 20045188,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2021-04-16"
+    },
+    {
+      "doi": "10.11582/2021.00018",
+      "extent": 28674799,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2021-03-22"
+    },
+    {
+      "doi": "10.11582/2021.00062",
+      "extent": 32251046,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2021-07-12"
+    },
+    {
+      "doi": "10.11582/2021.00044",
+      "extent": 908243215,
+      "subject": "NATURAL_SCIENCE - Optics",
+      "datepublished": "2021-05-19"
+    },
+    {
+      "doi": "10.11582/2021.00040",
+      "extent": 382735,
+      "subject": "NATURAL_SCIENCE - Optics",
+      "datepublished": "2021-05-19"
+    },
+    {
+      "doi": "10.11582/2021.00043",
+      "extent": 403215,
+      "subject": "NATURAL_SCIENCE - Optics",
+      "datepublished": "2021-05-19"
+    },
+    {
+      "doi": "10.11582/2021.00029",
+      "extent": 25156309070,
+      "subject": "NATURAL_SCIENCE - Optics",
+      "datepublished": "2021-04-19"
+    },
+    {
+      "doi": "10.11582/2021.00021",
+      "extent": 34569257139,
+      "subject": "NATURAL_SCIENCE - Optics",
+      "datepublished": "2021-03-22"
+    },
+    {
+      "doi": "10.11582/2018.00007",
+      "extent": 2758924863954,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2018-03-22"
+    },
+    {
+      "doi": "10.11582/2018.00009",
+      "extent": 649256949777,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2018-05-08"
+    },
+    {
+      "doi": "10.11582/2018.00010",
+      "extent": 660703709101,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2018-05-08"
+    },
+    {
+      "doi": "10.11582/2019.00028",
+      "extent": 643115320088,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2019-10-28"
+    },
+    {
+      "doi": "10.11582/2019.00035",
+      "extent": 2930193253419,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2019-10-30"
+    },
+    {
+      "doi": "10.11582/2021.00041",
+      "extent": 403215,
+      "subject": "NATURAL_SCIENCE - Optics",
+      "datepublished": "2021-05-19"
+    },
+    {
+      "doi": "10.11582/2021.00020",
+      "extent": 28217417,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2021-03-22"
+    },
+    {
+      "doi": "10.11582/2020.00017",
+      "extent": 792744120,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2020-03-23"
+    },
+    {
+      "doi": "10.11582/2020.00015",
+      "extent": 231746150400,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2020-03-23"
+    },
+    {
+      "doi": "10.11582/2021.00001",
+      "extent": 21547497850,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2021-01-04"
+    },
+    {
+      "doi": "10.11582/2019.00031",
+      "extent": 16606859144,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2019-10-29"
+    },
+    {
+      "doi": "10.11582/2020.00016",
+      "extent": 17566044160,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2020-03-23"
+    },
+    {
+      "doi": "10.11582/2019.00032",
+      "extent": 83786001444,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2019-10-29"
+    },
+    {
+      "doi": "10.11582/2019.00033",
+      "extent": 689303897568,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2019-10-29"
+    },
+    {
+      "doi": "10.11582/2020.00018",
+      "extent": 518516313195,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2020-03-24"
+    },
+    {
+      "doi": "10.11582/2019.00034",
+      "extent": 1301793423360,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2019-10-30"
+    },
+    {
+      "doi": "10.11582/2019.00036",
+      "extent": 204509191693,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2019-10-30"
+    },
+    {
+      "doi": "10.11582/2020.00019",
+      "extent": 573413079638,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2020-03-30"
+    },
+    {
+      "doi": "10.11582/2020.00020",
+      "extent": 103743531604,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2020-03-30"
+    },
+    {
+      "doi": "10.11582/2021.00042",
+      "extent": 403215,
+      "subject": "NATURAL_SCIENCE - Optics",
+      "datepublished": "2021-05-19"
+    },
+    {
+      "doi": "10.11582/2021.00065",
+      "extent": 30094453,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2021-07-16"
+    },
+    {
+      "doi": "10.11582/2021.00046",
+      "extent": 948646728,
+      "subject": "NATURAL_SCIENCE - Optics",
+      "datepublished": "2021-05-19"
+    },
+    {
+      "doi": "10.11582/2020.00047",
+      "extent": 1577894018757,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2020-09-22"
+    },
+    {
+      "doi": "10.11582/2020.00048",
+      "extent": 2776495385816,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2020-09-22"
+    },
+    {
+      "doi": "10.11582/2020.00045",
+      "extent": 1057756032994,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2020-09-22"
+    },
+    {
+      "doi": "10.11582/2018.00006",
+      "extent": 336674928640,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2018-03-17"
+    },
+    {
+      "doi": "10.11582/2019.00017",
+      "extent": 503455526,
+      "subject": "NATURAL_SCIENCE - Acoustics",
+      "datepublished": "2019-09-02"
+    },
+    {
+      "doi": "10.11582/2020.00046",
+      "extent": 4025785573236,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2020-09-22"
+    },
+    {
+      "doi": "10.11582/2021.00022",
+      "extent": 20417215627,
+      "subject": "NATURAL_SCIENCE - Optics",
+      "datepublished": "2021-03-30"
+    },
+    {
+      "doi": "10.11582/2020.00051",
+      "extent": 1048137518,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2020-09-29"
+    },
+    {
+      "doi": "10.11582/2021.00023",
+      "extent": 27130588,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2021-04-07"
+    },
+    {
+      "doi": "10.11582/2020.00050",
+      "extent": 1052616804902,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2020-09-22"
+    },
+    {
+      "doi": "10.11582/2020.00049",
+      "extent": 1273086558324,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2020-09-22"
+    },
+    {
+      "doi": "10.11582/2020.00052",
+      "extent": 1581124615,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2020-09-30"
+    },
+    {
+      "doi": "10.11582/2021.00045",
+      "extent": 955818652,
+      "subject": "NATURAL_SCIENCE - Optics",
+      "datepublished": "2021-05-19"
+    },
+    {
+      "doi": "10.11582/2021.00026",
+      "extent": 18675733,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2021-04-16"
+    },
+    {
+      "doi": "10.11582/2021.00061",
+      "extent": 27807787,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2021-07-12"
+    },
+    {
+      "doi": "10.11582/2020.00044",
+      "extent": 1055274977327,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2020-09-22"
+    },
+    {
+      "doi": "10.11582/2020.00055",
+      "extent": 851755888859,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2020-11-11"
+    },
+    {
+      "doi": "10.11582/2018.00011",
+      "extent": 933073591525,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2018-05-08"
+    },
+    {
+      "doi": "10.11582/2020.00065",
+      "extent": 8395636665477,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2020-12-10"
+    },
+    {
+      "doi": "10.11582/2021.00028",
+      "extent": 27165521328,
+      "subject": "NATURAL_SCIENCE - Optics",
+      "datepublished": "2021-04-19"
+    },
+    {
+      "doi": "10.11582/2019.00029",
+      "extent": 350418232716,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2019-10-29"
+    },
+    {
+      "doi": "10.11582/2021.00031",
+      "extent": 122299678,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2021-04-26"
+    },
+    {
+      "doi": "10.11582/2022.00018",
+      "extent": 22374824,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2022-03-23"
+    },
+    {
+      "doi": "10.11582/2022.00021",
+      "extent": 21203638,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2022-03-23"
+    },
+    {
+      "doi": "10.11582/2022.00012",
+      "extent": 1734230864502,
+      "subject": "NATURAL_SCIENCE - Climate science",
+      "datepublished": "2022-02-16"
+    },
+    {
+      "doi": "10.11582/2022.00026",
+      "extent": 21939932,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2022-03-23"
+    },
+    {
+      "doi": "10.11582/2022.00022",
+      "extent": 21523940,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2022-03-23"
+    },
+    {
+      "doi": "10.11582/2022.00019",
+      "extent": 28356994,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2022-03-23"
+    },
+    {
+      "doi": "10.11582/2022.00025",
+      "extent": 17574878,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2022-03-23"
+    },
+    {
+      "doi": "10.11582/2022.00023",
+      "extent": 24858775,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2022-03-23"
+    },
+    {
+      "doi": "10.11582/2022.00024",
+      "extent": 27272325,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2022-03-23"
+    },
+    {
+      "doi": "10.11582/2021.00025",
+      "extent": 20329674,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2021-04-09"
+    },
+    {
+      "doi": "10.11582/2014.00001",
+      "extent": 1478709591,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2014-07-30"
+    },
+    {
+      "doi": "10.11582/2017.00012",
+      "extent": 1538143852,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2017-08-18"
+    },
+    {
+      "doi": "10.11582/2016.00001",
+      "extent": 959303861602,
+      "subject": "NATURAL_SCIENCE - Cell Biology",
+      "datepublished": "2016-04-22"
+    },
+    {
+      "doi": "10.11582/2017.00017",
+      "extent": 6055577,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2017-10-13"
+    },
+    {
+      "doi": "10.11582/2021.00105",
+      "extent": 395147141960,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-23"
+    },
+    {
+      "doi": "10.11582/2017.00019",
+      "extent": 2384426400,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2017-10-16"
+    },
+    {
+      "doi": "10.11582/2018.00015",
+      "extent": 1436379107,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2018-06-14"
+    },
+    {
+      "doi": "10.11582/2014.00003",
+      "extent": 2390328560,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2014-07-31"
+    },
+    {
+      "doi": "10.11582/2017.00020",
+      "extent": 1575243801,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2017-10-16"
+    },
+    {
+      "doi": "10.11582/2014.00004",
+      "extent": 111453792,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2014-07-31"
+    },
+    {
+      "doi": "10.11582/2021.00068",
+      "extent": 3801759971238,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2021-08-25"
+    },
+    {
+      "doi": "10.11582/2014.00002",
+      "extent": 2091859676,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2014-07-31"
+    },
+    {
+      "doi": "10.11582/2017.00018",
+      "extent": 3328852298,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2017-10-16"
+    },
+    {
+      "doi": "10.11582/2018.00018",
+      "extent": 5731081035,
+      "subject": "NATURAL_SCIENCE - Glaciology",
+      "datepublished": "2018-07-03"
+    },
+    {
+      "doi": "10.11582/2018.00019",
+      "extent": 389846107644,
+      "subject": "NATURAL_SCIENCE - Hydrology",
+      "datepublished": "2018-07-10"
+    },
+    {
+      "doi": "10.11582/2018.00023",
+      "extent": 458600382933,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2018-08-20"
+    },
+    {
+      "doi": "10.11582/2018.00022",
+      "extent": 1013070139236,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2018-08-20"
+    },
+    {
+      "doi": "10.11582/2021.00106",
+      "extent": 821290561927,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-23"
+    },
+    {
+      "doi": "10.11582/2019.00009",
+      "extent": 19447,
+      "subject": "NATURAL_SCIENCE - Geochemistry",
+      "datepublished": "2019-04-04"
+    },
+    {
+      "doi": "10.11582/2019.00011",
+      "extent": 689165868,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2019-05-16"
+    },
+    {
+      "doi": "10.11582/2021.00087",
+      "extent": 124039872788,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2021-10-11"
+    },
+    {
+      "doi": "10.11582/2019.00025",
+      "extent": 15168,
+      "subject": "NATURAL_SCIENCE - Geochemistry",
+      "datepublished": "2019-10-23"
+    },
+    {
+      "doi": "10.11582/2019.00020",
+      "extent": 3719735470,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2019-09-11"
+    },
+    {
+      "doi": "10.11582/2019.00018",
+      "extent": 58205820,
+      "subject": "SOCIAL_SCIENCE - Agricultural economics",
+      "datepublished": "2019-09-02"
+    },
+    {
+      "doi": "10.11582/2019.00019",
+      "extent": 958232032,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2019-09-06"
+    },
+    {
+      "doi": "10.11582/2020.00061",
+      "extent": 4735555200,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2020-12-07"
+    },
+    {
+      "doi": "10.11582/2020.00062",
+      "extent": 4662583440,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2020-12-07"
+    },
+    {
+      "doi": "10.11582/2021.00107",
+      "extent": 4646386395500,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-23"
+    },
+    {
+      "doi": "10.11582/2019.00037",
+      "extent": 180746713996,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2019-11-01"
+    },
+    {
+      "doi": "10.11582/2017.00002",
+      "extent": 2580690046915,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2017-02-15"
+    },
+    {
+      "doi": "10.11582/2017.00024",
+      "extent": 642067333416,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2017-11-11"
+    },
+    {
+      "doi": "10.11582/2022.00027",
+      "extent": 378896821654,
+      "subject": "NATURAL_SCIENCE - Geology",
+      "datepublished": "2022-04-27"
+    },
+    {
+      "doi": "10.11582/2021.00056",
+      "extent": 1117942671571,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2021-06-10"
+    },
+    {
+      "doi": "10.11582/2017.00021",
+      "extent": 93809659,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2017-10-30"
+    },
+    {
+      "doi": "10.11582/2017.00026",
+      "extent": 827084953600,
+      "subject": "NATURAL_SCIENCE - Planetary science",
+      "datepublished": "2017-11-12"
+    },
+    {
+      "doi": "10.11582/2017.00006",
+      "extent": 3614002185460,
+      "subject": "NATURAL_SCIENCE - Volcanology",
+      "datepublished": "2017-06-12"
+    },
+    {
+      "doi": "10.11582/2017.00023",
+      "extent": 93809786,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2017-11-10"
+    },
+    {
+      "doi": "10.11582/2018.00030",
+      "extent": 2747301759,
+      "subject": "NATURAL_SCIENCE - Fluid dynamics",
+      "datepublished": "2018-10-11"
+    },
+    {
+      "doi": "10.11582/2019.00043",
+      "extent": 15141002,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2019-12-06"
+    },
+    {
+      "doi": "10.11582/2021.00004",
+      "extent": 238358053,
+      "subject": "NATURAL_SCIENCE - ",
+      "datepublished": "2021-02-08"
+    },
+    {
+      "doi": "10.11582/2019.00030",
+      "extent": 6597718816890,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2019-10-29"
+    },
+    {
+      "doi": "10.11582/2019.00039",
+      "extent": 4106732882532,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2019-11-13"
+    },
+    {
+      "doi": "10.11582/2019.00040",
+      "extent": 8700346039,
+      "subject": "NATURAL_SCIENCE - Bioinformatics",
+      "datepublished": "2019-11-13"
+    },
+    {
+      "doi": "10.11582/2020.00034",
+      "extent": 265746470,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2020-08-11"
+    },
+    {
+      "doi": "10.11582/2020.00039",
+      "extent": 266069432,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2020-08-11"
+    },
+    {
+      "doi": "10.11582/2020.00027",
+      "extent": 265719595,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2020-05-07"
+    },
+    {
+      "doi": "10.11582/2020.00067",
+      "extent": 3090240227,
+      "subject": "NATURAL_SCIENCE - Evolutionary Biology",
+      "datepublished": "2020-12-29"
+    },
+    {
+      "doi": "10.11582/2021.00054",
+      "extent": 303727928669,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2021-06-09"
+    },
+    {
+      "doi": "10.11582/2021.00010",
+      "extent": 15275161,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2021-02-19"
+    },
+    {
+      "doi": "10.11582/2021.00037",
+      "extent": 115,
+      "subject": "NATURAL_SCIENCE - Optics",
+      "datepublished": "2021-05-10"
+    },
+    {
+      "doi": "10.11582/2021.00077",
+      "extent": 9536379024,
+      "subject": "FORMAL_SCIENCE - Algebra",
+      "datepublished": "2021-09-24"
+    },
+    {
+      "doi": "10.11582/2021.00014",
+      "extent": 18203443,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2021-03-10"
+    },
+    {
+      "doi": "10.11582/2022.00006",
+      "extent": 256487365252,
+      "subject": "NATURAL_SCIENCE - Geology",
+      "datepublished": "2022-02-04"
+    },
+    {
+      "doi": "10.11582/2022.00008",
+      "extent": 2247442484009,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2022-02-10"
+    },
+    {
+      "doi": "10.11582/2022.00005",
+      "extent": 101479146566,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2022-01-27"
+    },
+    {
+      "doi": "10.11582/2021.00006",
+      "extent": 15858550,
+      "subject": "NATURAL_SCIENCE - Immunology",
+      "datepublished": "2021-02-08"
+    },
+    {
+      "doi": "10.11582/2022.00020",
+      "extent": 14914241,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2022-03-23"
+    },
+    {
+      "doi": "10.11582/2022.00015",
+      "extent": 7627925970,
+      "subject": "FORMAL_SCIENCE - Algebra",
+      "datepublished": "2022-02-23"
+    },
+    {
+      "doi": "10.11582/2021.00078",
+      "extent": 3532108468,
+      "subject": "FORMAL_SCIENCE - Algebra",
+      "datepublished": "2021-09-27"
+    },
+    {
+      "doi": "10.11582/2016.00006",
+      "extent": 20572822395,
+      "subject": "NATURAL_SCIENCE - Evolutionary Genetics",
+      "datepublished": "2016-11-17"
+    },
+    {
+      "doi": "10.11582/2015.00005",
+      "extent": 1699104247488,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-02-23"
+    },
+    {
+      "doi": "10.11582/2021.00088",
+      "extent": 825951788,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2021-10-11"
+    },
+    {
+      "doi": "10.11582/2016.00005",
+      "extent": 6957628248,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2016-11-14"
+    },
+    {
+      "doi": "10.11582/2017.00011",
+      "extent": 4817725504,
+      "subject": "PROF_APPL_SCIENCE - Computer engineering",
+      "datepublished": "2017-08-08"
+    },
+    {
+      "doi": "10.11582/2017.00025",
+      "extent": 940798238720,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2017-11-12"
+    },
+    {
+      "doi": "10.11582/2014.00006",
+      "extent": 5230686701327,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2014-10-21"
+    },
+    {
+      "doi": "10.11582/2015.00011",
+      "extent": 1190339169897,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-04-15"
+    },
+    {
+      "doi": "10.11582/2021.00137",
+      "extent": 379755517233,
+      "subject": "NATURAL_SCIENCE - Biochemistry",
+      "datepublished": "2021-12-02"
+    },
+    {
+      "doi": "10.11582/2022.00013",
+      "extent": 3220630645043,
+      "subject": "NATURAL_SCIENCE - Bioinformatics",
+      "datepublished": "2022-02-17"
+    },
+    {
+      "doi": "10.11582/2016.00004",
+      "extent": 525574455,
+      "subject": "PROF_APPL_SCIENCE - Health informatics",
+      "datepublished": "2016-10-11"
+    },
+    {
+      "doi": "10.11582/2017.00005",
+      "extent": 142594792,
+      "subject": "NATURAL_SCIENCE - Glaciology",
+      "datepublished": "2017-06-02"
+    },
+    {
+      "doi": "10.11582/2017.00007",
+      "extent": 122028412251,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2017-07-11"
+    },
+    {
+      "doi": "10.11582/2017.00010",
+      "extent": 222548,
+      "subject": "NATURAL_SCIENCE - Hydrology",
+      "datepublished": "2017-08-01"
+    },
+    {
+      "doi": "10.11582/2015.00015",
+      "extent": 2289366,
+      "subject": "NATURAL_SCIENCE - Geology",
+      "datepublished": "2015-05-28"
+    },
+    {
+      "doi": "10.11582/2014.00007",
+      "extent": 1692158750506,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2014-10-22"
+    },
+    {
+      "doi": "10.11582/2015.00029",
+      "extent": 778495132614,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-09-03"
+    },
+    {
+      "doi": "10.11582/2021.00089",
+      "extent": 27255164330,
+      "subject": "NATURAL_SCIENCE - Immunogenetics",
+      "datepublished": "2021-10-11"
+    },
+    {
+      "doi": "10.11582/2015.00028",
+      "extent": 1231649685890,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-06-18"
+    },
+    {
+      "doi": "10.11582/2022.00028",
+      "extent": 1456936680,
+      "subject": "NATURAL_SCIENCE - Climate science",
+      "datepublished": "2022-05-20"
+    },
+    {
+      "doi": "10.11582/2017.00001",
+      "extent": 28950886048,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2017-02-10"
+    },
+    {
+      "doi": "10.11582/2014.00017",
+      "extent": 233790570193,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2014-12-03"
+    },
+    {
+      "doi": "10.11582/2015.00032",
+      "extent": 20777445,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2015-10-21"
+    },
+    {
+      "doi": "10.11582/2015.00012",
+      "extent": 3505718487248,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-04-15"
+    },
+    {
+      "doi": "10.11582/2015.00017",
+      "extent": 1383663131792,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-06-16"
+    },
+    {
+      "doi": "10.11582/2022.00001",
+      "extent": 11496819384320,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2022-01-03"
+    },
+    {
+      "doi": "10.11582/2021.00060",
+      "extent": 109437099,
+      "subject": "NATURAL_SCIENCE - Plasma physics",
+      "datepublished": "2021-07-02"
+    },
+    {
+      "doi": "10.11582/2021.00059",
+      "extent": 69289226,
+      "subject": "NATURAL_SCIENCE - Plasma physics",
+      "datepublished": "2021-07-02"
+    },
+    {
+      "doi": "10.11582/2021.00063",
+      "extent": 72287800479,
+      "subject": "NATURAL_SCIENCE - Systems Biology",
+      "datepublished": "2021-07-12"
+    },
+    {
+      "doi": "10.11582/2017.00016",
+      "extent": 1074293158207,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2017-09-19"
+    },
+    {
+      "doi": "10.11582/2021.00013",
+      "extent": 342460331102,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2021-03-08"
+    },
+    {
+      "doi": "10.11582/2021.00081",
+      "extent": 4411704170,
+      "subject": "NATURAL_SCIENCE - Bioinformatics",
+      "datepublished": "2021-10-04"
+    },
+    {
+      "doi": "10.11582/2021.00082",
+      "extent": 2721409626,
+      "subject": "NATURAL_SCIENCE - Bioinformatics",
+      "datepublished": "2021-10-04"
+    },
+    {
+      "doi": "10.11582/2021.00083",
+      "extent": 7196816820,
+      "subject": "NATURAL_SCIENCE - Structural Biology",
+      "datepublished": "2021-10-06"
+    },
+    {
+      "doi": "10.11582/2021.00058",
+      "extent": 499545781,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2021-06-21"
+    },
+    {
+      "doi": "10.11582/2014.00014",
+      "extent": 614707088331,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2014-12-03"
+    },
+    {
+      "doi": "10.11582/2014.00009",
+      "extent": 262272916,
+      "subject": "PROF_APPL_SCIENCE - Computer engineering",
+      "datepublished": "2014-11-10"
+    },
+    {
+      "doi": "10.11582/2017.00014",
+      "extent": 397750440374,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2017-09-18"
+    },
+    {
+      "doi": "10.11582/2015.00002",
+      "extent": 1189493797734,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-02-23"
+    },
+    {
+      "doi": "10.11582/2021.00084",
+      "extent": 186305973,
+      "subject": "NATURAL_SCIENCE - Biophysics",
+      "datepublished": "2021-10-07"
+    },
+    {
+      "doi": "10.11582/2021.00085",
+      "extent": 39604073203,
+      "subject": "NATURAL_SCIENCE - Computational chemistry",
+      "datepublished": "2021-10-08"
+    },
+    {
+      "doi": "10.11582/2022.00011",
+      "extent": 2902453245941,
+      "subject": "NATURAL_SCIENCE - Physical chemistry",
+      "datepublished": "2022-02-15"
+    },
+    {
+      "doi": "10.11582/2021.00015",
+      "extent": 2641655,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2021-03-11"
+    },
+    {
+      "doi": "10.11582/2019.00008",
+      "extent": 5352860448,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2019-03-29"
+    },
+    {
+      "doi": "10.11582/2021.00092",
+      "extent": 22860434752,
+      "subject": "NATURAL_SCIENCE - Geomorphology",
+      "datepublished": "2021-10-14"
+    },
+    {
+      "doi": "10.11582/2015.00008",
+      "extent": 661146324390,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-02-23"
+    },
+    {
+      "doi": "10.11582/2015.00009",
+      "extent": 619827005659,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-02-23"
+    },
+    {
+      "doi": "10.11582/2015.00018",
+      "extent": 725540520342,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-06-16"
+    },
+    {
+      "doi": "10.11582/2015.00022",
+      "extent": 726368527474,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-06-18"
+    },
+    {
+      "doi": "10.11582/2014.00015",
+      "extent": 1692477416527,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2014-12-03"
+    },
+    {
+      "doi": "10.11582/2015.00006",
+      "extent": 284400226897,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-02-23"
+    },
+    {
+      "doi": "10.11582/2021.00099",
+      "extent": 697828823811,
+      "subject": "NATURAL_SCIENCE - Bioinformatics",
+      "datepublished": "2021-11-19"
+    },
+    {
+      "doi": "10.11582/2018.00013",
+      "extent": 565993,
+      "subject": "FORMAL_SCIENCE - Computer security and reliability",
+      "datepublished": "2018-05-17"
+    },
+    {
+      "doi": "10.11582/2015.00020",
+      "extent": 2765353964146,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-06-18"
+    },
+    {
+      "doi": "10.11582/2015.00021",
+      "extent": 2288607205963,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-06-18"
+    },
+    {
+      "doi": "10.11582/2021.00138",
+      "extent": 514480291726,
+      "subject": "NATURAL_SCIENCE - Biochemistry",
+      "datepublished": "2021-12-02"
+    },
+    {
+      "doi": "10.11582/2015.00031",
+      "extent": 59763825,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2015-10-21"
+    },
+    {
+      "doi": "10.11582/2015.00030",
+      "extent": 59246905,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2015-10-21"
+    },
+    {
+      "doi": "10.11582/2015.00013",
+      "extent": 7488583914,
+      "subject": "NATURAL_SCIENCE - Genomics",
+      "datepublished": "2015-04-23"
+    },
+    {
+      "doi": "10.11582/2015.00033",
+      "extent": 32974841,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2015-10-21"
+    },
+    {
+      "doi": "10.11582/2015.00016",
+      "extent": 1011175113,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-06-09"
+    },
+    {
+      "doi": "10.11582/2017.00013",
+      "extent": 2697335058991,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2017-09-12"
+    },
+    {
+      "doi": "10.11582/2017.00015",
+      "extent": 496347900912,
+      "subject": "NATURAL_SCIENCE - Glaciology",
+      "datepublished": "2017-09-19"
+    },
+    {
+      "doi": "10.11582/2018.00003",
+      "extent": 15458890007,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2018-01-17"
+    },
+    {
+      "doi": "10.11582/2018.00016",
+      "extent": 3988017612800,
+      "subject": "NATURAL_SCIENCE - Geology",
+      "datepublished": "2018-06-26"
+    },
+    {
+      "doi": "10.11582/2015.00027",
+      "extent": 824219373583,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-06-18"
+    },
+    {
+      "doi": "10.11582/2018.00036",
+      "extent": 963199692800,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2018-11-13"
+    },
+    {
+      "doi": "10.11582/2017.00008",
+      "extent": 6210691480,
+      "subject": "NATURAL_SCIENCE - Plasma physics",
+      "datepublished": "2017-07-24"
+    },
+    {
+      "doi": "10.11582/2018.00024",
+      "extent": 373087409855,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2018-08-21"
+    },
+    {
+      "doi": "10.11582/2017.00004",
+      "extent": 3335720522,
+      "subject": "PROF_APPL_SCIENCE - Health informatics",
+      "datepublished": "2017-05-30"
+    },
+    {
+      "doi": "10.11582/2018.00008",
+      "extent": 144890968051,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2018-04-24"
+    },
+    {
+      "doi": "10.11582/2015.00010",
+      "extent": 102177417,
+      "subject": "FORMAL_SCIENCE - Programming languages",
+      "datepublished": "2015-03-24"
+    },
+    {
+      "doi": "10.11582/2018.00037",
+      "extent": 3313259888640,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2018-11-15"
+    },
+    {
+      "doi": "10.11582/2018.00021",
+      "extent": 52962370312,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2018-08-09"
+    },
+    {
+      "doi": "10.11582/2018.00020",
+      "extent": 994981489,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2018-08-30"
+    },
+    {
+      "doi": "10.11582/2018.00039",
+      "extent": 1107698714307,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2018-11-29"
+    },
+    {
+      "doi": "10.11582/2018.00038",
+      "extent": 158549025608,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2018-11-29"
+    },
+    {
+      "doi": "10.11582/2014.00012",
+      "extent": 614707383436,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2014-12-03"
+    },
+    {
+      "doi": "10.11582/2018.00027",
+      "extent": 16955396017,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2018-09-07"
+    },
+    {
+      "doi": "10.11582/2018.00025",
+      "extent": 109055618316,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2018-08-22"
+    },
+    {
+      "doi": "10.11582/2018.00029",
+      "extent": 398171664273,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2018-10-03"
+    },
+    {
+      "doi": "10.11582/2019.00003",
+      "extent": 23916406973975,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2019-02-01"
+    },
+    {
+      "doi": "10.11582/2019.00001",
+      "extent": 987578869760,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2019-01-10"
+    },
+    {
+      "doi": "10.11582/2018.00017",
+      "extent": 14677176,
+      "subject": "NATURAL_SCIENCE - Tectonics",
+      "datepublished": "2018-07-03"
+    },
+    {
+      "doi": "10.11582/2019.00004",
+      "extent": 182535340,
+      "subject": "NATURAL_SCIENCE - Glaciology",
+      "datepublished": "2019-02-05"
+    },
+    {
+      "doi": "10.11582/2021.00102",
+      "extent": 587853404402,
+      "subject": "NATURAL_SCIENCE - Computational chemistry",
+      "datepublished": "2021-11-22"
+    },
+    {
+      "doi": "10.11582/2019.00022",
+      "extent": 24694681600,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2019-09-30"
+    },
+    {
+      "doi": "10.11582/2020.00012",
+      "extent": 8015367148,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2020-03-12"
+    },
+    {
+      "doi": "10.11582/2020.00037",
+      "extent": 78794273,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2020-08-11"
+    },
+    {
+      "doi": "10.11582/2020.00013",
+      "extent": 5845448844828,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2020-03-19"
+    },
+    {
+      "doi": "10.11582/2019.00021",
+      "extent": 178887577600,
+      "subject": "NATURAL_SCIENCE - Hydrogeology",
+      "datepublished": "2019-09-25"
+    },
+    {
+      "doi": "10.11582/2020.00040",
+      "extent": 7927740200708,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2020-08-24"
+    },
+    {
+      "doi": "10.11582/2020.00038",
+      "extent": 2152788484,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2020-08-11"
+    },
+    {
+      "doi": "10.11582/2020.00008",
+      "extent": 113450367034,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2020-02-25"
+    },
+    {
+      "doi": "10.11582/2019.00002",
+      "extent": 23520386378569,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2019-01-29"
+    },
+    {
+      "doi": "10.11582/2019.00023",
+      "extent": 8357677064,
+      "subject": "NATURAL_SCIENCE - Fluid dynamics",
+      "datepublished": "2019-10-11"
+    },
+    {
+      "doi": "10.11582/2019.00038",
+      "extent": 44093886678,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2019-11-06"
+    },
+    {
+      "doi": "10.11582/2019.00005",
+      "extent": 38936385007,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2019-02-06"
+    },
+    {
+      "doi": "10.11582/2020.00025",
+      "extent": 4203887616,
+      "subject": "PROF_APPL_SCIENCE - Health informatics",
+      "datepublished": "2020-04-29"
+    },
+    {
+      "doi": "10.11582/2019.00044",
+      "extent": 6847866695,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2019-12-06"
+    },
+    {
+      "doi": "10.11582/2018.00028",
+      "extent": 272446497,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2018-09-13"
+    },
+    {
+      "doi": "10.11582/2021.00005",
+      "extent": 7146983108,
+      "subject": "NATURAL_SCIENCE - Immunology",
+      "datepublished": "2021-02-08"
+    },
+    {
+      "doi": "10.11582/2019.00013",
+      "extent": 33209334023410,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2019-06-24"
+    },
+    {
+      "doi": "10.11582/2019.00007",
+      "extent": 458028502658,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2019-03-13"
+    },
+    {
+      "doi": "10.11582/2022.00029",
+      "extent": 3353516768958,
+      "subject": "NATURAL_SCIENCE - Climate science",
+      "datepublished": "2022-06-02"
+    },
+    {
+      "doi": "10.11582/2019.00024",
+      "extent": 423866862081,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2019-10-16"
+    },
+    {
+      "doi": "10.11582/2019.00006",
+      "extent": 15228050014199,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2019-03-11"
+    },
+    {
+      "doi": "10.11582/2021.00002",
+      "extent": 1669703495680,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-01-13"
+    },
+    {
+      "doi": "10.11582/2020.00026",
+      "extent": 167853131720,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2020-04-30"
+    },
+    {
+      "doi": "10.11582/2021.00007",
+      "extent": 25389363200,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-02-15"
+    },
+    {
+      "doi": "10.11582/2019.00010",
+      "extent": 21684870129643,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2019-04-15"
+    },
+    {
+      "doi": "10.11582/2021.00009",
+      "extent": 8429020275,
+      "subject": "NATURAL_SCIENCE - Immunology",
+      "datepublished": "2021-02-16"
+    },
+    {
+      "doi": "10.11582/2020.00001",
+      "extent": 4180647937900,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2020-01-07"
+    },
+    {
+      "doi": "10.11582/2020.00002",
+      "extent": 77225865,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2020-01-08"
+    },
+    {
+      "doi": "10.11582/2015.00023",
+      "extent": 729675198535,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-06-18"
+    },
+    {
+      "doi": "10.11582/2015.00024",
+      "extent": 1453961250839,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-06-18"
+    },
+    {
+      "doi": "10.11582/2020.00010",
+      "extent": 23160302964,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2020-03-02"
+    },
+    {
+      "doi": "10.11582/2020.00011",
+      "extent": 4143215445392,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2020-03-02"
+    },
+    {
+      "doi": "10.11582/2020.00003",
+      "extent": 1356089784320,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2020-01-20"
+    },
+    {
+      "doi": "10.11582/2020.00009",
+      "extent": 2580480,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2020-02-26"
+    },
+    {
+      "doi": "10.11582/2019.00016",
+      "extent": 32863492,
+      "subject": "NATURAL_SCIENCE - Geology",
+      "datepublished": "2019-08-26"
+    },
+    {
+      "doi": "10.11582/2019.00015",
+      "extent": 1653907391666,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2019-08-06"
+    },
+    {
+      "doi": "10.11582/2019.00014",
+      "extent": 20308009244,
+      "subject": "NATURAL_SCIENCE - ",
+      "datepublished": "2019-07-10"
+    },
+    {
+      "doi": "10.11582/2019.00041",
+      "extent": 150467936288,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2019-11-19"
+    },
+    {
+      "doi": "10.11582/2022.00002",
+      "extent": 2545202,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2022-01-12"
+    },
+    {
+      "doi": "10.11582/2019.00042",
+      "extent": 10761557068,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2019-11-29"
+    },
+    {
+      "doi": "10.11582/2020.00035",
+      "extent": 762883045929,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2020-08-11"
+    },
+    {
+      "doi": "10.11582/2020.00054",
+      "extent": 36795483,
+      "subject": "NATURAL_SCIENCE - Glaciology",
+      "datepublished": "2020-10-12"
+    },
+    {
+      "doi": "10.11582/2022.00030",
+      "extent": 1923098540,
+      "subject": "NATURAL_SCIENCE - Climate science",
+      "datepublished": "2022-06-07"
+    },
+    {
+      "doi": "10.11582/2015.00019",
+      "extent": 6231595432496,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-06-16"
+    },
+    {
+      "doi": "10.11582/2020.00022",
+      "extent": 9298814054400,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2020-04-07"
+    },
+    {
+      "doi": "10.11582/2021.00008",
+      "extent": 12266328951,
+      "subject": "NATURAL_SCIENCE - Immunology",
+      "datepublished": "2021-02-16"
+    },
+    {
+      "doi": "10.11582/2021.00064",
+      "extent": 936914958312,
+      "subject": "NATURAL_SCIENCE - Bioinformatics",
+      "datepublished": "2021-07-16"
+    },
+    {
+      "doi": "10.11582/2020.00042",
+      "extent": 3832561849548,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2020-08-27"
+    },
+    {
+      "doi": "10.11582/2020.00043",
+      "extent": 71774019354728,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2020-09-15"
+    },
+    {
+      "doi": "10.11582/2020.00023",
+      "extent": 1697146,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2020-04-27"
+    },
+    {
+      "doi": "10.11582/2018.00001",
+      "extent": 354992757,
+      "subject": "NATURAL_SCIENCE - Hydrology",
+      "datepublished": "2018-01-05"
+    },
+    {
+      "doi": "10.11582/2021.00072",
+      "extent": 753619773,
+      "subject": "NATURAL_SCIENCE - Medical Imaging",
+      "datepublished": "2021-09-06"
+    },
+    {
+      "doi": "10.11582/2020.00024",
+      "extent": 2541129,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2020-04-29"
+    },
+    {
+      "doi": "10.11582/2021.00011",
+      "extent": 8735657383,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-02-24"
+    },
+    {
+      "doi": "10.11582/2018.00005",
+      "extent": 965414686720,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2018-02-20"
+    },
+    {
+      "doi": "10.11582/2021.00038",
+      "extent": 20733459,
+      "subject": "NATURAL_SCIENCE - Bioinformatics",
+      "datepublished": "2021-05-12"
+    },
+    {
+      "doi": "10.11582/2020.00028",
+      "extent": 4506121372299,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2020-05-12"
+    },
+    {
+      "doi": "10.11582/2018.00014",
+      "extent": 9224806060,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2018-05-31"
+    },
+    {
+      "doi": "10.11582/2021.00053",
+      "extent": 123394873938,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2021-06-09"
+    },
+    {
+      "doi": "10.11582/2020.00029",
+      "extent": 9650124,
+      "subject": "SOCIAL_SCIENCE - Energy economics",
+      "datepublished": "2020-05-13"
+    },
+    {
+      "doi": "10.11582/2021.00051",
+      "extent": 1358313840640,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-05-28"
+    },
+    {
+      "doi": "10.11582/2020.00059",
+      "extent": 1888085672,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2020-11-19"
+    },
+    {
+      "doi": "10.11582/2020.00033",
+      "extent": 712171686948,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2020-07-16"
+    },
+    {
+      "doi": "10.11582/2020.00030",
+      "extent": 724394649,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2020-05-26"
+    },
+    {
+      "doi": "10.11582/2021.00033",
+      "extent": 120874345,
+      "subject": "NATURAL_SCIENCE - Geomorphology",
+      "datepublished": "2021-05-05"
+    },
+    {
+      "doi": "10.11582/2020.00056",
+      "extent": 33871192071,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2020-11-11"
+    },
+    {
+      "doi": "10.11582/2020.00058",
+      "extent": 2100030197760,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2020-11-18"
+    },
+    {
+      "doi": "10.11582/2020.00063",
+      "extent": 39818060,
+      "subject": "NATURAL_SCIENCE - Marine Biology",
+      "datepublished": "2020-12-09"
+    },
+    {
+      "doi": "10.11582/2021.00024",
+      "extent": 447750656,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2021-04-08"
+    },
+    {
+      "doi": "10.11582/2021.00003",
+      "extent": 270778270414,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2021-01-22"
+    },
+    {
+      "doi": "10.11582/2021.00052",
+      "extent": 47213220,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2021-06-09"
+    },
+    {
+      "doi": "10.11582/2021.00093",
+      "extent": 840479076,
+      "subject": "NATURAL_SCIENCE - Geology",
+      "datepublished": "2021-10-27"
+    },
+    {
+      "doi": "10.11582/2014.00005",
+      "extent": 1692292691724,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2014-10-21"
+    },
+    {
+      "doi": "10.11582/2014.00008",
+      "extent": 233790764147,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2014-10-22"
+    },
+    {
+      "doi": "10.11582/2021.00016",
+      "extent": 74566369,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2021-03-11"
+    },
+    {
+      "doi": "10.11582/2020.00032",
+      "extent": 142707588,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2020-06-16"
+    },
+    {
+      "doi": "10.11582/2021.00094",
+      "extent": 1378292,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2021-10-29"
+    },
+    {
+      "doi": "10.11582/2015.00001",
+      "extent": 615489335526,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-02-23"
+    },
+    {
+      "doi": "10.11582/2021.00034",
+      "extent": 3204880721920,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-05-07"
+    },
+    {
+      "doi": "10.11582/2021.00069",
+      "extent": 39818052,
+      "subject": "NATURAL_SCIENCE - Marine Biology",
+      "datepublished": "2021-08-30"
+    },
+    {
+      "doi": "10.11582/2021.00140",
+      "extent": 5927008660071,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2021-12-10"
+    },
+    {
+      "doi": "10.11582/2021.00141",
+      "extent": 9091607049934,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2021-12-19"
+    },
+    {
+      "doi": "10.11582/2021.00071",
+      "extent": 15143170203,
+      "subject": "NATURAL_SCIENCE - ",
+      "datepublished": "2021-09-01"
+    },
+    {
+      "doi": "10.11582/2021.00097",
+      "extent": 146415349760,
+      "subject": "NATURAL_SCIENCE - Biochemistry",
+      "datepublished": "2021-11-09"
+    },
+    {
+      "doi": "10.11582/2021.00096",
+      "extent": 114221281280,
+      "subject": "NATURAL_SCIENCE - Medicinal chemistry",
+      "datepublished": "2021-11-03"
+    },
+    {
+      "doi": "10.11582/2015.00025",
+      "extent": 1230369590706,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-06-18"
+    },
+    {
+      "doi": "10.11582/2021.00066",
+      "extent": 1099640902,
+      "subject": "NATURAL_SCIENCE - Geomorphology",
+      "datepublished": "2021-08-05"
+    },
+    {
+      "doi": "10.11582/2021.00103",
+      "extent": 292678062080,
+      "subject": "NATURAL_SCIENCE - Computational chemistry",
+      "datepublished": "2021-11-22"
+    },
+    {
+      "doi": "10.11582/2021.00104",
+      "extent": 292678062080,
+      "subject": "NATURAL_SCIENCE - Computational chemistry",
+      "datepublished": "2021-11-22"
+    },
+    {
+      "doi": "10.11582/2021.00098",
+      "extent": 159701941925,
+      "subject": "NATURAL_SCIENCE - Immunology",
+      "datepublished": "2021-11-09"
+    },
+    {
+      "doi": "10.11582/2021.00055",
+      "extent": 527952092,
+      "subject": "NATURAL_SCIENCE - Plasma physics",
+      "datepublished": "2021-06-10"
+    },
+    {
+      "doi": "10.11582/2021.00143",
+      "extent": 3664686908464,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2021-12-20"
+    },
+    {
+      "doi": "10.11582/2021.00035",
+      "extent": 5391090169584,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-05-10"
+    },
+    {
+      "doi": "10.11582/2021.00036",
+      "extent": 2025142765762,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-05-10"
+    },
+    {
+      "doi": "10.11582/2021.00073",
+      "extent": 475929892,
+      "subject": "NATURAL_SCIENCE - Geology",
+      "datepublished": "2021-09-16"
+    },
+    {
+      "doi": "10.11582/2021.00074",
+      "extent": 902790596,
+      "subject": "NATURAL_SCIENCE - Bioinformatics",
+      "datepublished": "2021-09-21"
+    },
+    {
+      "doi": "10.11582/2021.00075",
+      "extent": 561254024992,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2021-09-22"
+    },
+    {
+      "doi": "10.11582/2021.00076",
+      "extent": 3146460467,
+      "subject": "NATURAL_SCIENCE - Geology",
+      "datepublished": "2021-09-24"
+    },
+    {
+      "doi": "10.11582/2021.00080",
+      "extent": 135393,
+      "subject": "NATURAL_SCIENCE - Geomorphology",
+      "datepublished": "2021-09-29"
+    },
+    {
+      "doi": "10.11582/2021.00145",
+      "extent": 4420887407216,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2021-12-20"
+    },
+    {
+      "doi": "10.11582/2021.00057",
+      "extent": 15253655173,
+      "subject": "NATURAL_SCIENCE - ",
+      "datepublished": "2021-06-16"
+    },
+    {
+      "doi": "10.11582/2021.00101",
+      "extent": 955431424994,
+      "subject": "NATURAL_SCIENCE - Biochemistry",
+      "datepublished": "2021-11-22"
+    },
+    {
+      "doi": "10.11582/2021.00144",
+      "extent": 2661511442805,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2021-12-20"
+    },
+    {
+      "doi": "10.11582/2022.00004",
+      "extent": 526907653,
+      "subject": "NATURAL_SCIENCE - Geomorphology",
+      "datepublished": "2022-01-27"
+    },
+    {
+      "doi": "10.11582/2021.00086",
+      "extent": 6582487040,
+      "subject": "NATURAL_SCIENCE - Physical chemistry",
+      "datepublished": "2021-10-08"
+    },
+    {
+      "doi": "10.11582/2020.00031",
+      "extent": 3076515597,
+      "subject": "NATURAL_SCIENCE - Genetics",
+      "datepublished": "2020-05-29"
+    },
+    {
+      "doi": "10.11582/2022.00003",
+      "extent": 5319932911,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2022-01-17"
+    },
+    {
+      "doi": "10.11582/2020.00060",
+      "extent": 3701306309279,
+      "subject": "NATURAL_SCIENCE - Immunology",
+      "datepublished": "2020-12-03"
+    },
+    {
+      "doi": "10.11582/2020.00014",
+      "extent": 1475666867322,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2020-03-20"
+    },
+    {
+      "doi": "10.11582/2014.00010",
+      "extent": 1412592062379,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2014-12-03"
+    },
+    {
+      "doi": "10.11582/2015.00003",
+      "extent": 1189681126128,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-02-23"
+    },
+    {
+      "doi": "10.11582/2021.00136",
+      "extent": 2085727835682,
+      "subject": "NATURAL_SCIENCE - Biochemistry",
+      "datepublished": "2021-12-02"
+    },
+    {
+      "doi": "10.11582/2021.00090",
+      "extent": 58870806889,
+      "subject": "NATURAL_SCIENCE - Biochemistry",
+      "datepublished": "2021-10-13"
+    },
+    {
+      "doi": "10.11582/2014.00011",
+      "extent": 1294118881459,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2014-12-03"
+    },
+    {
+      "doi": "10.11582/2015.00007",
+      "extent": 661141790390,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-02-23"
+    },
+    {
+      "doi": "10.11582/2014.00016",
+      "extent": 1699364430318,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2014-12-03"
+    },
+    {
+      "doi": "10.11582/2015.00004",
+      "extent": 1699103005363,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-02-23"
+    },
+    {
+      "doi": "10.11582/2022.00016",
+      "extent": 426202122240,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2022-03-07"
+    },
+    {
+      "doi": "10.11582/2022.00009",
+      "extent": 474732981670,
+      "subject": "NATURAL_SCIENCE - Geology",
+      "datepublished": "2022-02-14"
+    },
+    {
+      "doi": "10.11582/2022.00010",
+      "extent": 2552809099561,
+      "subject": "NATURAL_SCIENCE - Biophysics",
+      "datepublished": "2022-02-15"
+    },
+    {
+      "doi": "10.11582/2022.00014",
+      "extent": 304449210233,
+      "subject": "NATURAL_SCIENCE - Climate science",
+      "datepublished": "2022-02-21"
+    },
+    {
+      "doi": "10.11582/2018.00026",
+      "extent": 67071443321,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2018-08-28"
+    },
+    {
+      "doi": "10.11582/2022.00032",
+      "extent": 76002568,
+      "subject": "NATURAL_SCIENCE - Plasma physics",
+      "datepublished": "2022-06-10"
+    },
+    {
+      "doi": "10.11582/2021.00095",
+      "extent": 1861985234548,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2021-11-02"
+    },
+    {
+      "doi": "10.11582/2014.00013",
+      "extent": 614707257315,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2014-12-03"
+    },
+    {
+      "doi": "10.11582/2015.00026",
+      "extent": 1314553023543,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2015-06-18"
+    },
+    {
+      "doi": "10.11582/2020.00041",
+      "extent": 3229545359673,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2020-08-25"
+    },
+    {
+      "doi": "10.11582/2022.00007",
+      "extent": 92269,
+      "subject": "PROF_APPL_SCIENCE - Nutrition",
+      "datepublished": "2022-02-08"
+    },
+    {
+      "doi": "10.11582/2022.00017",
+      "extent": 67487660629,
+      "subject": "PROF_APPL_SCIENCE - Environmental engineering",
+      "datepublished": "2022-03-09"
+    },
+    {
+      "doi": "10.11582/2017.00009",
+      "extent": 299919,
+      "subject": "NATURAL_SCIENCE - Hydrology",
+      "datepublished": "2017-08-01"
+    },
+    {
+      "doi": "10.11582/2021.00134",
+      "extent": 499720551565,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-30"
+    },
+    {
+      "doi": "10.11582/2021.00116",
+      "extent": 199963609406,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-24"
+    },
+    {
+      "doi": "10.11582/2021.00110",
+      "extent": 709379167664,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-24"
+    },
+    {
+      "doi": "10.11582/2021.00115",
+      "extent": 500034646355,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-24"
+    },
+    {
+      "doi": "10.11582/2015.00014",
+      "extent": 2171648139425,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2015-05-13"
+    },
+    {
+      "doi": "10.11582/2018.00035",
+      "extent": 443822198944,
+      "subject": "NATURAL_SCIENCE - ",
+      "datepublished": "2018-10-22"
+    },
+    {
+      "doi": "10.11582/2020.00006",
+      "extent": 306933771108,
+      "subject": "NATURAL_SCIENCE - ",
+      "datepublished": "2020-02-07"
+    },
+    {
+      "doi": "10.11582/2018.00004",
+      "extent": 20480687938,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2018-01-18"
+    },
+    {
+      "doi": "10.11582/2021.00120",
+      "extent": 1103734350413,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-25"
+    },
+    {
+      "doi": "10.11582/2021.00119",
+      "extent": 491334805825,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-25"
+    },
+    {
+      "doi": "10.11582/2018.00032",
+      "extent": 3186642176259,
+      "subject": "NATURAL_SCIENCE - ",
+      "datepublished": "2018-10-22"
+    },
+    {
+      "doi": "10.11582/2018.00033",
+      "extent": 483740716645,
+      "subject": "NATURAL_SCIENCE - ",
+      "datepublished": "2018-10-22"
+    },
+    {
+      "doi": "10.11582/2020.00021",
+      "extent": 57427623470165,
+      "subject": "NATURAL_SCIENCE - ",
+      "datepublished": "2020-04-01"
+    },
+    {
+      "doi": "10.11582/2021.00111",
+      "extent": 1463562146227,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-24"
+    },
+    {
+      "doi": "10.11582/2020.00053",
+      "extent": 242917684266,
+      "subject": "NATURAL_SCIENCE - ",
+      "datepublished": "2020-10-06"
+    },
+    {
+      "doi": "10.11582/2021.00127",
+      "extent": 513780925612,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-29"
+    },
+    {
+      "doi": "10.11582/2019.00012",
+      "extent": 988760938450,
+      "subject": "NATURAL_SCIENCE - ",
+      "datepublished": "2019-06-05"
+    },
+    {
+      "doi": "10.11582/2021.00125",
+      "extent": 5361056946964,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-26"
+    },
+    {
+      "doi": "10.11582/2021.00067",
+      "extent": 154033100030,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2021-08-12"
+    },
+    {
+      "doi": "10.11582/2020.00036",
+      "extent": 1463471717005,
+      "subject": "NATURAL_SCIENCE - ",
+      "datepublished": "2020-08-11"
+    },
+    {
+      "doi": "10.11582/2021.00030",
+      "extent": 5384374,
+      "subject": "NATURAL_SCIENCE - ",
+      "datepublished": "2021-04-26"
+    },
+    {
+      "doi": "10.11582/2021.00123",
+      "extent": 1500307446722,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-26"
+    },
+    {
+      "doi": "10.11582/2021.00122",
+      "extent": 499703317097,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-26"
+    },
+    {
+      "doi": "10.11582/2018.00031",
+      "extent": 487370919330,
+      "subject": "NATURAL_SCIENCE - ",
+      "datepublished": "2018-10-22"
+    },
+    {
+      "doi": "10.11582/2020.00066",
+      "extent": 25624362,
+      "subject": "NATURAL_SCIENCE - ",
+      "datepublished": "2020-12-21"
+    },
+    {
+      "doi": "10.11582/2021.00132",
+      "extent": 998810199831,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-29"
+    },
+    {
+      "doi": "10.11582/2021.00114",
+      "extent": 499117083729,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-24"
+    },
+    {
+      "doi": "10.11582/2021.00117",
+      "extent": 500197922545,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-24"
+    },
+    {
+      "doi": "10.11582/2021.00109",
+      "extent": 4230077096394,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-24"
+    },
+    {
+      "doi": "10.11582/2021.00112",
+      "extent": 1832315017294,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-24"
+    },
+    {
+      "doi": "10.11582/2021.00113",
+      "extent": 572858296144,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-24"
+    },
+    {
+      "doi": "10.11582/2021.00100",
+      "extent": 853269981203,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2021-11-20"
+    },
+    {
+      "doi": "10.11582/2021.00121",
+      "extent": 514142344275,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-26"
+    },
+    {
+      "doi": "10.11582/2021.00108",
+      "extent": 1029790657127,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-24"
+    },
+    {
+      "doi": "10.11582/2021.00131",
+      "extent": 2236012260597,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-29"
+    },
+    {
+      "doi": "10.11582/2021.00128",
+      "extent": 514296637662,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-29"
+    },
+    {
+      "doi": "10.11582/2021.00135",
+      "extent": 9685232109260,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-12-01"
+    },
+    {
+      "doi": "10.11582/2021.00133",
+      "extent": 1305006633051,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-29"
+    },
+    {
+      "doi": "10.11582/2021.00130",
+      "extent": 500064448229,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-29"
+    },
+    {
+      "doi": "10.11582/2021.00126",
+      "extent": 6370785905394,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-29"
+    },
+    {
+      "doi": "10.11582/2021.00129",
+      "extent": 9116765529819,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-29"
+    },
+    {
+      "doi": "10.11582/2021.00124",
+      "extent": 499831666469,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-26"
+    },
+    {
+      "doi": "10.11582/2021.00118",
+      "extent": 6038785715056,
+      "subject": "NATURAL_SCIENCE - Geophysics",
+      "datepublished": "2021-11-25"
+    },
+    {
+      "doi": "10.11582/2018.00034",
+      "extent": 420093280926,
+      "subject": "NATURAL_SCIENCE - ",
+      "datepublished": "2018-10-22"
+    },
+    {
+      "doi": "10.11582/2019.00027",
+      "extent": 668363952970,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2019-10-23"
+    },
+    {
+      "doi": "10.11582/2022.00033",
+      "extent": 16502903789764,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2022-06-14"
+    },
+    {
+      "doi": "10.11582/2021.00139",
+      "extent": 3182092718080,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2021-12-08"
+    },
+    {
+      "doi": "10.11582/2021.00142",
+      "extent": 35894243512320,
+      "subject": "NATURAL_SCIENCE - Environmental science",
+      "datepublished": "2021-12-20"
+    },
+    {
+      "doi": "10.11582/2020.00007",
+      "extent": 57673014,
+      "subject": "NATURAL_SCIENCE - Hydrology",
+      "datepublished": "2020-02-11"
+    }
+  ]
+}

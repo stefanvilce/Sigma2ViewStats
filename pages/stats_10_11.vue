@@ -40,6 +40,9 @@
 </template>
 <script>
 import * as d3 from "d3";
+import util from '~/assets/js/util.js';
+
+const fs = require("fs");
 
 export default {
     data() {
@@ -49,33 +52,40 @@ export default {
             linkNext_Page: ""
         }
     },
+
+
     async fetch() {
-        //await fetch("https://staging.web.archive-api.sigma2.no/api/list/dataset/doi/").then((res) => res.json().then((r) => {
-        await fetch("https://search-api.web.sigma2.no/norstore-archive/metadata/api/basic-search?query=*").then((res) => res.json().then((r) => {
-            this.nr = r.Total_Documents;
-            this.linkNext_Page = r.Next_Page;
-            return r;
-        })).then(async (pagina) => {
-            const articles = pagina;
-            for(var i=0; i < articles.Documents.length; i++){
-                var r = articles.Documents[i]; // console.log(" **** RRR " + JSON.stringify(r, 4, 0));
-                var getArticle = { 
-                    doi: r.Identifier, 
-                    extent: r.Extent,
-                    subject: r.Subject[0].Domain + " - " + r.Subject[0].Subfield,  
-                    datepublished: r.Published.substring(0, 10)
-                    };
-                this.articles.push(getArticle);               
-            }
-        }).then(() => { console.log("We got this number of documents: " + this.nr); }).then(this.getLink); // I have to remember to write this.getLink or () => this.getLink(), but no this.getLink(); because it will not wait for asyncron  
-        // You will be able to access articles anywhere with this.articles and loop them v-for inside your template
+        if(!this.checkCacheSync()){
+            //await fetch("https://staging.web.archive-api.sigma2.no/api/list/dataset/doi/").then((res) => res.json().then((r) => {
+            await fetch("https://search-api.web.sigma2.no/norstore-archive/metadata/api/basic-search?query=*").then((res) => res.json().then((r) => {
+                this.nr = r.Total_Documents;
+                this.linkNext_Page = r.Next_Page;
+                return r;
+            })).then(async (pagina) => {
+                const articles = pagina;
+                for(var i=0; i < articles.Documents.length; i++){
+                    var r = articles.Documents[i]; // console.log(" **** RRR " + JSON.stringify(r, 4, 0));
+                    var getArticle = { 
+                        doi: r.Identifier, 
+                        extent: r.Extent,
+                        subject: r.Subject[0].Domain + " - " + r.Subject[0].Subfield,  
+                        datepublished: r.Published.substring(0, 10)
+                        };
+                    this.articles.push(getArticle);               
+                }
+            }).then(() => { console.log("We got this number of documents: " + this.nr); }).then(this.getLink).then(this.saveInCache); // I have to remember to write this.getLink or () => this.getLink(), but no this.getLink(); because it will not wait for asyncron
+            // You will be able to access articles anywhere with this.articles and loop them v-for inside your template    
+        }
     },
-    
+
+
     mounted() {
         this.generateBars(); //https://www.freecodecamp.org/news/d3js-tutorial-data-visualization-for-beginners/
     },
-    methods: { 
-       
+
+
+    methods: {
+
         async getLink(){
             var linkNext_Page = this.linkNext_Page;
             if(linkNext_Page.length > 5){ // it has be not null or not Equal with "NULL"
@@ -97,9 +107,40 @@ export default {
                 }).then(this.getLink);
             } else {
                 console.log("I have read all the pages in the source. ");
+                //set this in cache
+                console.log("Aici o sa vina cacheul....");
             }
         },
 
+        saveInCache(){
+            var today = new Date();        
+            let cacheResponse = { 
+                createdAtDateTime: today,
+                description: 'This json file keeps the data we took from REST APIs and it is used as a CACHE on the server side.',
+                data: this.articles
+            };            
+            let data = JSON.stringify(cacheResponse, null, 2);
+            fs.writeFile('data/cacheResponse.json', data, (err) => {
+                if (err) throw err;
+                console.log('Data written to file, in CACHE file.');
+            });
+        },
+
+        checkCacheSync(){
+            // this function check if the CACHE file exists and if the age of the file is still good to keep the data
+            // and read the data from cache file
+            // the maxAge should be 24 hours == 1440 minutes
+            var jsonul = fs.readFileSync('data/cacheResponse.json','utf8');
+            let readCacheFile = JSON.parse(jsonul);
+            if(util.diffTime(readCacheFile.createdAtDateTime)){ // f.eks: "2022-06-08T09:06:03.075Z"
+                console.log("We get the data from cache file.");
+                this.articles = readCacheFile.data;
+                return true;
+            } else {
+                console.log("The cache file is too old. We get the data from the primary source and save them to CACHE file.");
+                return false;
+            }
+        },
 
         generateBars() {
             // set the dimensions and margins of the graph

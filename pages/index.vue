@@ -40,10 +40,16 @@
                         <td class="border px-8 py-2"><NuxtLink to="/stats_10_11">0.11 Number of datasets / Year</NuxtLink></td>
                     </tr>
                     <tr>
-                        <td class="border px-8 py-2"><NuxtLink to="/stats_10_02">0.02 Total datasets</NuxtLink></td>
+                        <td class="border px-8 py-2"><NuxtLink to="/stats_10_02">0.02 Total datasets / Month</NuxtLink></td>
                     </tr>
                     <tr>
-                        <td class="border px-8 py-2"><NuxtLink to="/stats_11">1. Total size (extent) / Published date</NuxtLink></td>
+                        <td class="border px-8 py-2"><NuxtLink to="/stats_10_12">0.12 Total datasets / Year</NuxtLink></td>
+                    </tr>
+                    <tr>
+                        <td class="border px-8 py-2" title="Total size Extent (cumulative) / Published month"><NuxtLink to="/stats_11">1. Total size (extent) / Month</NuxtLink></td>
+                    </tr>
+                    <tr>
+                        <td class="border px-8 py-2" title="Total size Extent (cumulative) / Published Year"><NuxtLink to="/stats_11_01">1.01 Total size (extent) / Year</NuxtLink></td>
                     </tr>
                     <tr>
                         <td class="border px-8 py-2"><NuxtLink to="/stats_12">2. The size (extent) of each dataset / Published date</NuxtLink></td>

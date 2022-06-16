@@ -4,6 +4,7 @@
     "@nuxt/kit": "^0.8.1-edge",
     "@nuxtjs/tailwindcss": "^5.0.0-4",
     "d3": "^7.3.0",
+    "fs": "^0.0.1-security",
     "nuxt": "^2.13.3"
   },
   "scripts": {
@@ -14,5 +15,10 @@
   "devDependencies": {
     "@types/d3": "^7.1.0",
     "nuxt-build-optimisations": "^1.0.7"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }
