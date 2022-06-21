@@ -186,21 +186,6 @@ export default {
             y_axis.tickPadding(10);
             
             
-            
-
-            // create a tooltip
-            var tooltip = svg.append("line")
-                .style("stroke", "#98A3C3")
-                .style("stroke-width", 1)
-                .style("opacity", 0)
-                .attr("y1", height - 60);
-
-            var tooltip2 =  svg.append('line')
-                .style("stroke", "#98A3C3")
-                .style("stroke-width", 1)
-                .style("opacity", 0)
-                .attr("x1", 90);
-            
             var data = this.articles;
 
             data.sort((a, b) => { // Sorting the datepublished 
@@ -243,6 +228,19 @@ export default {
                 .y(function(d) { return y_scale(d.extent) })
             );
 
+
+            // create a tooltip
+            var tooltip = svg.append("line")
+                .style("stroke", "#98A3C3")
+                .style("stroke-width", 1)
+                .style("opacity", 0)
+                .attr("y1", height - 60);
+
+            var tooltip2 =  svg.append('line')
+                .style("stroke", "#98A3C3")
+                .style("stroke-width", 1)
+                .style("opacity", 0)
+                .attr("x1", 90);
 
             // Add the circles
             svg.selectAll("myCircles")

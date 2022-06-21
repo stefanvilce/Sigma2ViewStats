@@ -31,7 +31,7 @@
                         <th class="bg-blue-100 border text-left px-8 py-2">The new statistics</th>
                     </tr>
                     <tr>
-                        <td class="border px-8 py-2"><NuxtLink to="/stats_10">0. Number of datasets / Published date</NuxtLink></td>
+                        <td class="border px-8 py-2"><NuxtLink to="/stats_10">0.00 Number of datasets / Published date</NuxtLink></td>
                     </tr>
                     <tr>
                         <td class="border px-8 py-2"><NuxtLink to="/stats_10_01">0.01 Number of datasets / Month</NuxtLink></td>
@@ -40,19 +40,25 @@
                         <td class="border px-8 py-2"><NuxtLink to="/stats_10_11">0.11 Number of datasets / Year</NuxtLink></td>
                     </tr>
                     <tr>
-                        <td class="border px-8 py-2"><NuxtLink to="/stats_10_02">0.02 Total datasets / Month</NuxtLink></td>
+                        <td class="border px-8 py-2"><NuxtLink to="/stats_10_02">0.02 Total datasets (cumulative) / Month</NuxtLink></td>
                     </tr>
                     <tr>
-                        <td class="border px-8 py-2"><NuxtLink to="/stats_10_12">0.12 Total datasets / Year</NuxtLink></td>
+                        <td class="border px-8 py-2"><NuxtLink to="/stats_10_12">0.12 Total datasets  (cumulative) / Year</NuxtLink></td>
                     </tr>
                     <tr>
-                        <td class="border px-8 py-2" title="Total size Extent (cumulative) / Published month"><NuxtLink to="/stats_11">1. Total size (extent) / Month</NuxtLink></td>
+                        <td class="border px-8 py-2" title="Total size Extent (cumulative) / Published month"><NuxtLink to="/stats_11">1.00 Total size (extent) / Month</NuxtLink></td>
                     </tr>
                     <tr>
                         <td class="border px-8 py-2" title="Total size Extent (cumulative) / Published Year"><NuxtLink to="/stats_11_01">1.01 Total size (extent) / Year</NuxtLink></td>
                     </tr>
                     <tr>
-                        <td class="border px-8 py-2"><NuxtLink to="/stats_12">2. The size (extent) of each dataset / Published date</NuxtLink></td>
+                        <td class="border px-8 py-2"><NuxtLink to="/stats_12">2.00 The size (extent) of each dataset / Published date</NuxtLink></td>
+                    </tr>
+                    <tr>
+                        <td class="border px-8 py-2"><NuxtLink to="/stats_12_01">2.01 The size (extent) of each dataset / Month</NuxtLink></td>
+                    </tr>
+                    <tr>
+                        <td class="border px-8 py-2"><NuxtLink to="/stats_12_02">2.02 The size (extent) of each dataset / Year</NuxtLink></td>
                     </tr>
                     <tr>
                         <td class="border px-8 py-2"><NuxtLink to="/stats_13">3. The size (extent) of each dataset / Subject</NuxtLink></td>

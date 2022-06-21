@@ -31,7 +31,11 @@
                 &nbsp;
 
                 <!-- Create a div where the graph will take place -->
-                <div id="my_dataviz"></div>
+                <div id="my_dataviz" class="lg:col-span-12 flex space-x-2 justify-center">
+                    <button type="button" id='saveButton' class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-20 py-5 text-center mr-2 mb-2">
+                        Export to PNG
+                    </button>
+                </div>
 
             </section>
         <NirdFooter />
@@ -45,6 +49,23 @@ import util from '~/assets/js/util.js';
 const fs = require("fs");
 
 export default {
+    head() {
+      return {
+        script: [
+          {
+                src: 'https://cdn.rawgit.com/eligrey/canvas-toBlob.js/f1a01896135ab378aa5c0118eadd81da55e698d8/canvas-toBlob.js'
+          },
+          {
+                src: 'https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js'
+          },
+          {
+                src: '/export2png.js'
+          }
+        ],
+      }
+    },
+
+
     data() {
         return {
             articles: [],
@@ -52,6 +73,8 @@ export default {
             linkNext_Page: ""
         }
     },
+
+    
     async fetch() {
         if(!this.checkCacheSync()){
             await fetch("https://search-api.web.sigma2.no/norstore-archive/metadata/api/basic-search?query=*").then((res) => res.json().then((r) => {

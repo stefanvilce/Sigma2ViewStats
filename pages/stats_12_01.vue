@@ -21,18 +21,11 @@
                 </table -->
 
                 <div class="lg:col-span-12"> 
-                    &nbsp;
-                </div>            
-
-                <div class="lg:col-span-12"> 
                     <svg id="d3_demo"></svg>
                 </div>
-
                 &nbsp;
-
                 <!-- Create a div where the graph will take place -->
                 <div id="my_dataviz"></div>
-
             </section>
         <NirdFooter />
 
@@ -56,6 +49,7 @@ export default {
 
     async fetch() {
         if(!this.checkCacheSync()){
+            //await fetch("https://staging.web.archive-api.sigma2.no/api/list/dataset/doi/").then((res) => res.json().then((r) => {
             await fetch("https://search-api.web.sigma2.no/norstore-archive/metadata/api/basic-search?query=*").then((res) => res.json().then((r) => {
                 this.nr = r.Total_Documents;
                 this.linkNext_Page = r.Next_Page;
@@ -77,35 +71,14 @@ export default {
         }
     },
 
-    /*async fetch() {
-        //await fetch("https://staging.web.archive-api.sigma2.no/api/list/dataset/doi/").then((res) => res.json().then((r) => {
-        await fetch("https://search-api.web.sigma2.no/norstore-archive/metadata/api/basic-search?query=*").then((res) => res.json().then((r) => {
-            this.nr = r.Total_Documents;
-            return r;
-        })).then(async (pagina) => {
-            const articles = pagina;
 
-            console.log(JSON.stringify(articles.Documents));
-            console.log(" No. of Documents on this Page " + articles.Documents.length);            
-            for(var i=0; i < articles.Documents.length; i++){
-                var r = articles.Documents[i]; console.log(" **** RRR " + JSON.stringify(r, 4, 0));
-                var getArticle = { 
-                    doi: r.Identifier, 
-                    extent: r.Extent,
-                    subject: r.Subject[0].Domain + " - " + r.Subject[0].Subfield,  
-                    datepublished: r.Published.substring(0, 10)
-                    };
-                this.articles.push(getArticle);
-               
-            }
-        }).then(() => { console.log("We got this number of documents: " + this.nr); }).then(this.getLink());
-        // You will be able to access articles anywhere with this.articles and loop them v-for inside your template
-    }, */
-    
     mounted() {
         this.generateBars(); //https://www.freecodecamp.org/news/d3js-tutorial-data-visualization-for-beginners/    
     },
-    methods: { 
+
+
+    methods: {
+
         async getLink(){
             var linkNext_Page = this.linkNext_Page;
             if(linkNext_Page.length > 5){ // it has be not null or not Equal with "NULL"
@@ -163,7 +136,6 @@ export default {
             }
         },
 
-
         //https://www.freecodecamp.org/news/d3js-tutorial-data-visualization-for-beginners/
         generateBars() {
             // set the dimensions and margins of the graph
@@ -183,73 +155,64 @@ export default {
             .style("text-decoration", "none")
             .style("font-weight", "bold")
             .style("color", "#434376")
-            .text("Total size (extent) / Subject");
+            .text("The size (extent) of each dataset / Month");
                        
             // Add the text label for the y axis
             svg.append("text")
                 .attr("x", 36)
-                .attr("y", margin.top + 1)
+                .attr("y", margin.top + 66)
                 .style("text-anchor", "left")
-                .style("font-size", "22px")
+                .style("font-size", "18px")
                 .style("color", "red")
                 .text("GB");
                 
             // Add the text label for the x axis
             svg.append("text")
-                .attr("x", width - 120)
-                .attr("y", height - 2)
+                .attr("x", width - 125)
+                .attr("y", height - 72)
                 .style("font-size", "22px")
                 .style("color", "#B2B2CD")
-                .text("Subject");
+                .text("Month");
 
             const x_scale = d3
             .scaleBand()
-            .range([margin.left, width - margin.right])
-            .padding(0.1);
+            .range([margin.left, width - margin.right]);
+            //.padding(0.1);
+            const x_scale2 = d3.scaleTime().range([margin.left, width - margin.right]);
 
-            const y_scale = d3.scaleLinear().range([height - margin.bottom, margin.top]);
+            const y_scale = d3.scaleLinear().range([height - margin.bottom, margin.top + 61]);
             let x_axis = d3.axisBottom(x_scale);
             let y_axis = d3.axisLeft(y_scale);
+            y_axis.tickPadding(10);
             
             var data = this.articles;
-
-            data.sort((a, b) => { // Sorting the SUBJECT 
-                if (a.subject < b.subject) {
+            data.sort((a, b) => { // Sorting the datepublished 
+                if (a.datepublished < b.datepublished) {
                     return -1;
                 } else {
                     return 1;
                 }
             });
-            //Summing the data from the same subject.
-            var nested_data =  d3.rollups(data, v => d3.sum(v, d => d.extent) ,  d => d.subject.split(' - ')[0]).map(([k, v]) => ({ DateP: k, Sumextent: v }));
+
             
+            //Summing the data from the same day.
+            var nested_data =  d3.rollups(data, v => d3.sum(v, d => d.extent) ,  d => d.datepublished.substring(0, 7)).map(([k, v]) => ({ DateP: k, Sumextent: v }));
             //The new array of objects which will build the array which shall contain the SUMS of EXTENTS until the index DATE. 
-            //It means that it is summing 
-          /* var dateNew = [];
-            var previousExtent = 0;
-            for(let i=0; i<nested_data.length; i++){
-                previousExtent = previousExtent + nested_data[i].Sumextent;
-                let rec = { subject: nested_data[i].DateP, extent: previousExtent }
-                dateNew.push(rec);
-            }*/
+            //It means that it is summing the extent, but not cumulative here
             var dateNew = [];
             for(let i=0; i<nested_data.length; i++){
                 var extentSum = nested_data[i].Sumextent;
-                let rec = { subject: nested_data[i].DateP, extent: extentSum }
+                let rec = { datepublished: nested_data[i].DateP, extent: extentSum }
                 dateNew.push(rec);
             }
 
-
-            // SUMARIZAREA:
-            // https://stackoverflow.com/questions/50454720/d3-grouping-and-summarization
-
+           
             dateNew.forEach((d) => (d.extent = +d.extent/1000000000));
             // Scale the range of the data in the domains
-            x_scale.domain(dateNew.map((d) => d.subject.split(' - ')[0]));
+            x_scale.domain(dateNew.map((d) => d.datepublished));
             y_scale.domain([0, d3.max(dateNew, (d) => d.extent) * 1.45]);
 
 
-            
             // Add the line chart
             svg.append("path")
             .datum(dateNew)
@@ -257,12 +220,12 @@ export default {
             .attr("stroke", "#87A3C3")
             .attr("stroke-width", 2.2)
             .attr("d", d3.line()
-                .x(function(d) { return x_scale(d.subject.split(' - ')[0]) + x_scale.bandwidth()/2 })
+                .x(function(d) { return x_scale(d.datepublished) + x_scale.bandwidth()/2 })
+                //.x(function(d) { return x_scale(d.datepublished) })
                 .y(function(d) { return y_scale(d.extent) })
             );
 
 
-            
             // create a tooltip
             var tooltip = svg.append("line")
                 .style("stroke", "#98A3C3")
@@ -284,7 +247,7 @@ export default {
             .append("circle")
                 .attr("fill", "blue")
                 .attr("stroke", "none")
-                .attr("cx", (d) => x_scale(d.subject.split(' - ')[0]) + x_scale.bandwidth()/2)
+                .attr("cx", (d) => x_scale(d.datepublished) + x_scale.bandwidth()/2)
                 .attr("cy", (d) => y_scale(d.extent))
                 .attr("r", 8)
                 .on("mouseover", function(d) {                    
@@ -315,19 +278,19 @@ export default {
             svg
             .append("g")
             .attr("transform", `translate(0,${height - margin.bottom})`)
-            .call(x_axis)
+            .call(x_axis.tickValues(x_scale.domain().filter(function(d,i){ return !(i%5)})))  /// this is to show only few data labels on x axis
             .selectAll("text")
             .style("text-anchor", "middle")
-            .style("font-size", "24px")
+            .style("font-size", "14px")
             .style("letter-spacing", "-1px")
-            .attr("dx", "0.2em")
-            .attr("dy", "1.80em")
-            .attr("transform", "rotate(0)");
+            .attr("dx", "-1.6em")
+            .attr("dy", "1.60em")
+            .attr("transform", "rotate(-70)");
 
             // add y axis
             svg.append("g")
             .attr("transform", `translate(${margin.left},0)`)
-            .style("font-size", "22px")
+            .style("font-size", "18px")
             .style("color", "#6576CA")
             .call(y_axis);
        },
@@ -389,9 +352,7 @@ export default {
 
 .highlight {
             fill: orange;
-        }
-
-
+}
 
 </style>
 
