@@ -24,14 +24,19 @@
                     &nbsp;
                 </div>            
 
+                <!-- Create a div where the graph will take place -->
                 <div class="lg:col-span-12"> 
                     <svg id="d3_demo"></svg>
                 </div>
 
                 &nbsp;
-
-                <!-- Create a div where the graph will take place -->
-                <div id="my_dataviz"></div>
+                
+                <!-- The button for export in PNG file -->
+                <div id="my_dataviz" class="lg:col-span-12 flex space-x-2 justify-center">
+                    <button type="button" id='saveButton' class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-20 py-5 text-center mr-2 mb-2">
+                        Export to PNG
+                    </button>
+                </div>
 
             </section>
         <NirdFooter />
@@ -45,6 +50,23 @@ import util from '~/assets/js/util.js';
 const fs = require("fs");
 
 export default {
+    head() {
+      return {
+        script: [
+          {
+                src: 'https://cdn.rawgit.com/eligrey/canvas-toBlob.js/f1a01896135ab378aa5c0118eadd81da55e698d8/canvas-toBlob.js'
+          },
+          {
+                src: 'https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js'
+          },
+          {
+                src: '/export2png.js'
+          }
+        ],
+      }
+    },
+
+
     data() {
         return {
             articles: [],
@@ -149,6 +171,17 @@ export default {
             height = 800;
             const svg = d3.select("#d3_demo").attr("viewBox", [0, 0, width, height]);
 
+
+            // Set-up the export button
+            d3.select('#saveButton').on('click', function(){
+                var svgString = getSVGString(svg.node());
+                svgString2Image( svgString, 2*width, 2*height, 'png', save ); // passes Blob and filesize String to the callback
+                
+                function save( dataBlob, filesize ){
+                    saveAs( dataBlob, '10.11.DatasetsPerYear.png' ); // FileSaver.js function
+                }
+            });
+
             // add title
             svg
             .append("text")
@@ -194,6 +227,19 @@ export default {
             let x_axis = d3.axisBottom(x_scale);
             let y_axis = d3.axisLeft(y_scale); 
             
+            // create a tooltip
+            var tooltip = svg.append("line")
+                .style("stroke", "#98A3C3")
+                .style("stroke-width", 1)
+                .style("opacity", 0)
+                .attr("y1", height - 60);
+
+            var tooltip2 =  svg.append('line')
+                .style("stroke", "#98A3C3")
+                .style("stroke-width", 1)
+                .style("opacity", 0)
+                .attr("x1", 90);
+
             var data = this.articles;
             data.sort((a, b) => {
                 if (a.datepublished < b.datepublished) {
@@ -226,7 +272,31 @@ export default {
                 .attr("stroke", "none")
                 .attr("cx", (d) => x_scale(d.datepublished) + x_scale.bandwidth()/2)
                 .attr("cy", (d) => y_scale(d.occurences))
-                .attr("r", 5);
+                .attr("r", 10)
+                .on("mouseover", function(d) {                    
+                    tooltip2.transition()		
+                        .duration(200)		
+                        .style("opacity", 0.8)
+                        .attr("y1", d3.select(this).attr("cy"))
+                        .attr("x2", d3.select(this).attr("cx"))
+                        .attr("y2", d3.select(this).attr("cy"));
+
+                    tooltip.transition()		
+                        .duration(200)		
+                        .style("opacity", 0.8)
+                        .attr("y2", d3.select(this).attr("cy"))
+                        .attr("x1", d3.select(this).attr("cx"))
+                        .attr("x2", d3.select(this).attr("cx"));
+
+                    })					
+                .on("mouseout", function(d) {
+                    tooltip.transition()		
+                        .duration(800)		
+                        .style("opacity", 0);
+                    tooltip2.transition()		
+                        .duration(800)		
+                        .style("opacity", 0);	
+                });
                 //.attr("r", x_scale.bandwidth()/40);
             
 

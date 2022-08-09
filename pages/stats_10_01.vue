@@ -74,7 +74,7 @@ export default {
         }
     },
 
-    
+
     async fetch() {
         if(!this.checkCacheSync()){
             await fetch("https://search-api.web.sigma2.no/norstore-archive/metadata/api/basic-search?query=*").then((res) => res.json().then((r) => {
@@ -168,6 +168,16 @@ export default {
             height = 800;
             const svg = d3.select("#d3_demo").attr("viewBox", [0, 0, width, height]);
 
+            // Set-up the export button
+            d3.select('#saveButton').on('click', function(){
+                var svgString = getSVGString(svg.node());
+                svgString2Image( svgString, 2*width, 2*height, 'png', save ); // passes Blob and filesize String to the callback
+                
+                function save( dataBlob, filesize ){
+                    saveAs( dataBlob, '10.01.DatasetsPerMonth.png' ); // FileSaver.js function
+                }
+            });
+
             // add title
             svg
             .append("text")
@@ -216,6 +226,19 @@ export default {
             //y_axis.ticks(3);    // Pusei 6 pentru test. Trebuie sa fie in concordanta cu cat de multe o sa apara pe acolo.
             y_axis.tickPadding(4);
             
+            // create a tooltip
+            var tooltip = svg.append("line")
+                .style("stroke", "#98A3C3")
+                .style("stroke-width", 1)
+                .style("opacity", 0)
+                .attr("y1", height - 60);
+
+            var tooltip2 =  svg.append('line')
+                .style("stroke", "#98A3C3")
+                .style("stroke-width", 1)
+                .style("opacity", 0)
+                .attr("x1", 90);
+
             var data = this.articles;
 
             data.sort((a, b) => { // Sorting the datepublished 
@@ -250,7 +273,31 @@ export default {
                 .attr("stroke", "none")
                 .attr("cx", (d) => x_scale(d.datepublished) + x_scale.bandwidth()/2)
                 .attr("cy", (d) => y_scale(d.occurences))
-                .attr("r", 5);
+                .attr("r", 8)
+                .on("mouseover", function(d) {                    
+                    tooltip2.transition()		
+                        .duration(200)		
+                        .style("opacity", 0.8)
+                        .attr("y1", d3.select(this).attr("cy"))
+                        .attr("x2", d3.select(this).attr("cx"))
+                        .attr("y2", d3.select(this).attr("cy"));
+
+                    tooltip.transition()		
+                        .duration(200)		
+                        .style("opacity", 0.8)
+                        .attr("y2", d3.select(this).attr("cy"))
+                        .attr("x1", d3.select(this).attr("cx"))
+                        .attr("x2", d3.select(this).attr("cx"));
+
+                    })					
+                .on("mouseout", function(d) {
+                    tooltip.transition()		
+                        .duration(800)		
+                        .style("opacity", 0);
+                    tooltip2.transition()		
+                        .duration(800)		
+                        .style("opacity", 0);	
+                });
                 //.attr("r", x_scale.bandwidth()/40);
             
 
