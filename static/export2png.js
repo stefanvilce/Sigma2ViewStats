@@ -79,7 +79,6 @@ function svgString2Image( svgString, width, height, format, callback ) {
 
 	var canvas = document.createElement("canvas");
 	var context = canvas.getContext("2d");
-
 	canvas.width = width;
 	canvas.height = height;
 

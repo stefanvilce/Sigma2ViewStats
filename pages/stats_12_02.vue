@@ -31,6 +31,10 @@
                     <button type="button" id='saveButton' class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-20 py-5 text-center mr-2 mb-2">
                         Export to PNG
                     </button>
+
+                    <button type="button" id='saveCSV' class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-20 py-5 text-center mr-2 mb-2">
+                        Download CSV file
+                    </button>
                 </div>
             </section>
         <NirdFooter />
@@ -38,8 +42,10 @@
     </div>
 </template>
 <script>
+
 import * as d3 from "d3";
 import util from '~/assets/js/util.js';
+
 
 const fs = require("fs");
 
@@ -55,7 +61,10 @@ export default {
           },
           {
                 src: '/export2png.js'
-          }
+          }/*,
+          {
+                src: 'https://cdn.jsdelivr.net/npm/json-to-csv-export'
+          }*/
         ],
       }
     },
@@ -176,6 +185,12 @@ export default {
                 }
             });
 
+            // Set-up the export CSV button
+            d3.select('#saveCSV').on('click', function(){
+                var mockData = [{'test':'Primul Tset', 'valoare': 'mare'},{'test':'Aha', 'valoare': 'mare'}];
+                () => csvDownload(mockData);
+            });
+
             // add title
             svg
             .append("text")
@@ -196,7 +211,7 @@ export default {
                 .style("text-anchor", "left")
                 .style("font-size", "18px")
                 .style("color", "red")
-                .text("GB");
+                .text("TB");
                 
             // Add the text label for the x axis
             svg.append("text")
@@ -270,17 +285,32 @@ export default {
                 .style("opacity", 0)
                 .attr("x1", 90);
 
+            var tooltip3bkgr = svg.append("ellipse")
+                .attr("cx", 250)
+                .attr("cy", 50)
+                .attr("rx", 10)
+                .attr("ry", 8)
+                .style("opacity", 0);
+
+            var tooltip3 = svg.append("text")
+                .attr("x", 36)
+                .attr("y", margin.top + 66)
+                .style("text-anchor", "center")
+                .style("opacity", 0)
+                .text("More information here");
 
             // Add the circles
             svg.selectAll("myCircles")
             .data(dateNew)
             .enter()
             .append("circle")
-                .attr("fill", "blue")
+                .attr("fill", "#87A3C3")
                 .attr("stroke", "none")
                 .attr("cx", (d) => x_scale(d.datepublished) + x_scale.bandwidth()/2)
                 .attr("cy", (d) => y_scale(d.extent))
-                .attr("r", 8)
+                .attr("r", 11)
+                .attr("lbl_d_datepublished", (d)=>d.datepublished)
+                .attr("lbl_d_extent", (d)=>d.extent)
                 .on("mouseover", function(d) {                    
                     tooltip2.transition()		
                         .duration(200)		
@@ -294,6 +324,24 @@ export default {
                         .attr("y2", d3.select(this).attr("cy"))
                         .attr("x1", d3.select(this).attr("cx"))
                         .attr("x2", d3.select(this).attr("cx"));
+                    tooltip3bkgr.transition()
+                        .duration(80)
+                        .attr("cx", d3.select(this).attr("cx"))
+                        .attr("cy", parseInt(d3.select(this).attr("cy"))-57)
+                        .attr("rx", 170)
+                        .attr("ry", 40)
+                        .attr("fill", "white")
+                        .style("opacity", 0.5);
+                    tooltip3.transition(d)
+                        .duration(100)
+                        .style("opacity", 0.8)
+                        .attr("y", parseInt(d3.select(this).attr("cy"))-45)
+                        .attr("x", parseInt(d3.select(this).attr("cx"))-147)
+                        .attr("font-family", "Saira")
+                        .attr("font-weight", "bold")
+                        .style("font-size", "31px")
+                        .style("fill", "#454512")                      
+                        .text(Math.ceil(d3.select(this).attr("lbl_d_extent")) + " TB / " + d3.select(this).attr("lbl_d_datepublished"));
                     })					
                 .on("mouseout", function(d) {
                     tooltip.transition()		
@@ -301,9 +349,14 @@ export default {
                         .style("opacity", 0);
                     tooltip2.transition()		
                         .duration(1500)		
-                        .style("opacity", 0);	
-                });
-            
+                        .style("opacity", 0);
+                    tooltip3bkgr.transition()
+                        .duration(2000)
+                        .style("opacity", 0);
+                    tooltip3.transition()
+                        .duration(2000)
+                        .style("opacity", 0);
+                });            
 
             // append x axis
             svg

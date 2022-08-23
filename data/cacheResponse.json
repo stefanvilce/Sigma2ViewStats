@@ -1,5 +1,5 @@
 {
-  "createdAtDateTime": "2022-08-09T10:10:32.244Z",
+  "createdAtDateTime": "2022-08-23T11:59:34.055Z",
   "description": "This json file keeps the data we took from REST APIs and it is used as a CACHE on the server side.",
   "data": [
     {
@@ -537,12 +537,6 @@
       "datepublished": "2014-07-31"
     },
     {
-      "doi": "10.11582/2021.00068",
-      "extent": 3801759971238,
-      "subject": "NATURAL_SCIENCE - Meteorology",
-      "datepublished": "2021-08-25"
-    },
-    {
       "doi": "10.11582/2014.00002",
       "extent": 2091859676,
       "subject": "NATURAL_SCIENCE - Neuroscience",
@@ -643,6 +637,12 @@
       "extent": 4646386395500,
       "subject": "NATURAL_SCIENCE - Geophysics",
       "datepublished": "2021-11-23"
+    },
+    {
+      "doi": "10.11582/2021.00068",
+      "extent": 3880821640328,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2021-08-25"
     },
     {
       "doi": "10.11582/2019.00037",

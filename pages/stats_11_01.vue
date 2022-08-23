@@ -198,7 +198,7 @@ export default {
                 .style("text-anchor", "left")
                 .style("font-size", "22px")
                 .style("color", "red")
-                .text("GB");
+                .text("TB");
                 
             // Add the text label for the x axis
             svg.append("text")
@@ -275,6 +275,20 @@ export default {
                 .style("opacity", 0)
                 .attr("x1", 90);
 
+            var tooltip3bkgr = svg.append("ellipse")
+                .attr("cx", 250)
+                .attr("cy", 50)
+                .attr("rx", 10)
+                .attr("ry", 8)
+                .style("opacity", 0);
+
+            var tooltip3 = svg.append("text")
+                .attr("x", 36)
+                .attr("y", margin.top + 66)
+                .style("text-anchor", "center")
+                .style("opacity", 0)
+                .text("More information here");
+
             // Add the circles
             svg.selectAll("myCircles")
             .data(dateNew)
@@ -285,22 +299,39 @@ export default {
                 .attr("cx", (d) => x_scale(d.datepublished) + x_scale.bandwidth()/2)
                 .attr("cy", (d) => y_scale(d.extent))
                 .attr("r", 10)
+                .attr("lbl_d_datepublished", (d)=>d.datepublished)
+                .attr("lbl_d_extent", (d)=>d.extent)
                 .on("mouseover", function(d) {
-                    
-                    tooltip2.transition()		
-                        .duration(200)		
+                    tooltip2.transition()
+                        .duration(200)
                         .style("opacity", 0.8)
                         .attr("y1", d3.select(this).attr("cy"))
                         .attr("x2", d3.select(this).attr("cx"))
                         .attr("y2", d3.select(this).attr("cy"));
-
-                    tooltip.transition()		
-                        .duration(200)		
+                    tooltip.transition()
+                        .duration(200)
                         .style("opacity", 0.8)
                         .attr("y2", d3.select(this).attr("cy"))
                         .attr("x1", d3.select(this).attr("cx"))
                         .attr("x2", d3.select(this).attr("cx"));
-
+                    tooltip3bkgr.transition()
+                        .duration(80)
+                        .attr("cx", d3.select(this).attr("cx"))
+                        .attr("cy", parseInt(d3.select(this).attr("cy"))-57)
+                        .attr("rx", 170)
+                        .attr("ry", 40)
+                        .attr("fill", "white")
+                        .style("opacity", 0.5);
+                    tooltip3.transition(d)
+                        .duration(100)
+                        .style("opacity", 0.8)
+                        .attr("y", parseInt(d3.select(this).attr("cy"))-45)
+                        .attr("x", parseInt(d3.select(this).attr("cx"))-147)
+                        .attr("font-family", "Saira")
+                        .attr("font-weight", "bold")
+                        .style("font-size", "31px")
+                        .style("fill", "#454512")                      
+                        .text(Math.ceil(d3.select(this).attr("lbl_d_extent")) + " TB / " + d3.select(this).attr("lbl_d_datepublished"));
                     })					
                 .on("mouseout", function(d) {
                     tooltip.transition()		
@@ -308,6 +339,12 @@ export default {
                         .style("opacity", 0);
                     tooltip2.transition()		
                         .duration(1500)		
+                        .style("opacity", 0);
+                    tooltip3bkgr.transition()
+                        .duration(2400)
+                        .style("opacity", 0);
+                    tooltip3.transition()
+                        .duration(2800)
                         .style("opacity", 0);	
                 });
           
