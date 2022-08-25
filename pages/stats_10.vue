@@ -35,6 +35,10 @@
                     <button type="button" id='saveButton' class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-20 py-5 text-center mr-2 mb-2">
                         Export to PNG
                     </button>
+
+                    <button type="button" id='saveCSV' class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-20 py-5 text-center mr-2 mb-2">
+                        Download CSV file
+                    </button>
                 </div>
 
             </section>
@@ -45,9 +49,9 @@
 <script>
 import * as d3 from "d3";
 import util from '~/assets/js/util.js';
-//import * as fileSaver from '~/assets/js/FileSaver.min.js';
 
 const fs = require("fs");
+const converter = require('json-2-csv');
 
 export default {
     head() {
@@ -170,6 +174,7 @@ export default {
             const margin = { top: 40, right: 50, bottom: 55, left: 90 },
             width = document.querySelector("body").clientWidth,
             height = 800;
+            const svg = d3.select("#d3_demo").attr("viewBox", [0, 0, width, height]);
             
             // Set-up the export button
             d3.select('#saveButton').on('click', function(){
@@ -180,9 +185,17 @@ export default {
                     saveAs( dataBlob, 'D3 vis exported to PNG.png' ); // FileSaver.js function
                 }
             });
-            
-            const svg = d3.select("#d3_demo").attr("viewBox", [0, 0, width, height]);
-
+            // Set-up the export CSV button
+            const array_articles4csv = this.articles;
+            d3.select('#saveCSV').on('click', function(){
+                // convert JSON array to CSV string
+                converter.json2csv(array_articles4csv, (err, csv) => {
+                    if (err) {
+                        throw err;
+                    }
+                    saveAs(new Blob([csv], { type: "application/json;charset=utf-8" }), 'dataSourceOfCharts.csv');
+                });
+            });
 
 
             // add title
@@ -348,20 +361,6 @@ export default {
                         .style("opacity", 0);
                 });
             
-/*
-            // append x axis
-            svg
-            .append("g")
-            .attr("transform", `translate(0,${height - margin.bottom})`)
-            .call(x_axis)
-            .selectAll("text")
-            .style("text-anchor", "middle")
-            .style("font-size", "24px")
-            .style("letter-spacing", "-1px")
-            .attr("dx", "0.2em")
-            .attr("dy", "1.80em")
-            .attr("transform", "rotate(0)");
-*/
             // append x axis
             svg
             .append("g")

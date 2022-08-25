@@ -5,21 +5,7 @@
                 <h2 class="lg:col-span-9 mb-3 text-current font-medium text-4xl">View Stats</h2>
                 <span class="lg:col-span-3 mb-2 lg:mb-0"> </span>           
 
-                <!-- table class="shadow-lg bg-white lg:col-span-12">
-                    <tr>
-                        <th class="bg-blue-100 border text-left px-4 py-4">DOI</th>
-                        <th class="bg-blue-100 border text-left px-4 py-4">Extent</th>
-                        <th class="bg-blue-100 border text-left px-4 py-4">Subject</th>
-                        <th class="bg-blue-100 border text-left px-4 py-4">Date published</th>
-                    </tr>
-                    <tr v-for="(art, index) in this.articles" :key="index">
-                        <td class="border px-4 py-2">{{art.doi}}</td>
-                        <td class="border px-4 py-2">{{art.extent}}</td>
-                        <td class="border px-4 py-2">{{art.subject.domain}}<br />{{art.subject.field}}</td>
-                        <td class="border px-4 py-2">{{art.datepublished}}</td>
-                    </tr>
-                </table -->
-
+               
                 <!-- Create a div where the graph will take place -->
                 <div class="lg:col-span-12"> 
                     <svg id="d3_demo"></svg>
@@ -30,6 +16,10 @@
                 <div id="my_dataviz" class="lg:col-span-12 flex space-x-2 justify-center">
                     <button type="button" id='saveButton' class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-20 py-5 text-center mr-2 mb-2">
                         Export to PNG
+                    </button>
+
+                    <button type="button" id='saveCSV' class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-20 py-5 text-center mr-2 mb-2">
+                        Download CSV file
                     </button>
                 </div>
 
@@ -50,6 +40,7 @@ import * as d3 from "d3";
 import util from '~/assets/js/util.js';
 
 const fs = require("fs");
+const converter = require('json-2-csv');
 
 export default {
     head() {
@@ -80,7 +71,6 @@ export default {
 
     async fetch() {
         if(!this.checkCacheSync()){
-            //await fetch("https://staging.web.archive-api.sigma2.no/api/list/dataset/doi/").then((res) => res.json().then((r) => {
             await fetch("https://search-api.web.sigma2.no/norstore-archive/metadata/api/basic-search?query=*").then((res) => res.json().then((r) => {
                 this.nr = r.Total_Documents;
                 this.linkNext_Page = r.Next_Page;
@@ -101,38 +91,10 @@ export default {
             // You will be able to access articles anywhere with this.articles and loop them v-for inside your template
         }
     },
-
-
-/*
-    async fetch() {
-        //await fetch("https://staging.web.archive-api.sigma2.no/api/list/dataset/doi/").then((res) => res.json().then((r) => {
-        await fetch("https://search-api.web.sigma2.no/norstore-archive/metadata/api/basic-search?query=*").then((res) => res.json().then((r) => {
-            this.nr = r.Total_Documents;
-            return r;
-        })).then(async (pagina) => {
-            const articles = pagina;
-
-            console.log(JSON.stringify(articles.Documents));
-            console.log(" No. of Documents on this Page " + articles.Documents.length);            
-            for(var i=0; i < articles.Documents.length; i++){
-                var r = articles.Documents[i];
-                var getArticle = { 
-                    doi: r.Identifier, 
-                    extent: r.Extent,
-                    subject: r.Subject[0],  
-                    datepublished: r.Published.substring(0, 10)
-                    };
-                this.articles.push(getArticle);
-                //if(articles.Next_Page != "NULL") this.Next_Page = articles.Next_Page;
-                
-            }
-        }).then(() => { console.log("We got this number of documents: " + this.nr); }).then(this.getLink());
-        // You will be able to access articles anywhere with this.articles and loop them v-for inside your template
-    }, */
     
 
     mounted() {
-        this.generateBars(); //https://www.freecodecamp.org/news/d3js-tutorial-data-visualization-for-beginners/    
+        this.generateBars();
     },
 
 
@@ -196,7 +158,6 @@ export default {
             }
         },
 
-        //https://www.freecodecamp.org/news/d3js-tutorial-data-visualization-for-beginners/
         generateBars() {
             // set the dimensions and margins of the graph
             const margin = { top: 40, right: 50, bottom: 55, left: 90 },
@@ -212,6 +173,17 @@ export default {
                 function save( dataBlob, filesize ){
                     saveAs( dataBlob, '12.00.SizePerDate.png' ); // FileSaver.js function
                 }
+            });
+            // Set-up the export CSV button
+            const array_articles4csv = this.articles;
+            d3.select('#saveCSV').on('click', function(){
+                // convert JSON array to CSV string
+                converter.json2csv(array_articles4csv, (err, csv) => {
+                    if (err) {
+                        throw err;
+                    }
+                    saveAs(new Blob([csv], { type: "application/json;charset=utf-8" }), 'dataSourceOfCharts.csv');
+                });
             });
 
             // add title

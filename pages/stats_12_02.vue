@@ -46,8 +46,8 @@
 import * as d3 from "d3";
 import util from '~/assets/js/util.js';
 
-
 const fs = require("fs");
+const converter = require('json-2-csv');
 
 export default {
     head() {
@@ -61,10 +61,7 @@ export default {
           },
           {
                 src: '/export2png.js'
-          }/*,
-          {
-                src: 'https://cdn.jsdelivr.net/npm/json-to-csv-export'
-          }*/
+          }
         ],
       }
     },
@@ -104,7 +101,7 @@ export default {
 
 
     mounted() {
-        this.generateBars(); //https://www.freecodecamp.org/news/d3js-tutorial-data-visualization-for-beginners/    
+        this.generateBars();  
     },
 
 
@@ -167,7 +164,6 @@ export default {
             }
         },
 
-        //https://www.freecodecamp.org/news/d3js-tutorial-data-visualization-for-beginners/
         generateBars() {
             // set the dimensions and margins of the graph
             const margin = { top: 40, right: 50, bottom: 55, left: 90 },
@@ -178,17 +174,21 @@ export default {
             // Set-up the export button
             d3.select('#saveButton').on('click', function(){
                 var svgString = getSVGString(svg.node());
-                svgString2Image( svgString, 2*width, 2*height, 'png', save ); // passes Blob and filesize String to the callback
-                
+                svgString2Image( svgString, 2*width, 2*height, 'png', save ); // passes Blob and filesize String to the callback                
                 function save( dataBlob, filesize ){
                     saveAs( dataBlob, '12.02.SizePerYear.png' ); // FileSaver.js function
                 }
             });
-
             // Set-up the export CSV button
+            const array_articles4csv = this.articles;
             d3.select('#saveCSV').on('click', function(){
-                var mockData = [{'test':'Primul Tset', 'valoare': 'mare'},{'test':'Aha', 'valoare': 'mare'}];
-                () => csvDownload(mockData);
+                // convert JSON array to CSV string
+                converter.json2csv(array_articles4csv, (err, csv) => {
+                    if (err) {
+                        throw err;
+                    }
+                    saveAs(new Blob([csv], { type: "application/json;charset=utf-8" }), 'dataSourceOfCharts.csv');
+                });
             });
 
             // add title

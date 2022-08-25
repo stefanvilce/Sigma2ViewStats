@@ -5,21 +5,6 @@
                 <h2 class="lg:col-span-9 mb-3 text-current font-medium text-4xl">View Stats</h2>
                 <span class="lg:col-span-3 mb-2 lg:mb-0"> </span>           
 
-                <!--table class="shadow-lg bg-white lg:col-span-12">
-                    <tr>
-                        <th class="bg-blue-100 border text-left px-4 py-4">DOI</th>
-                        <th class="bg-blue-100 border text-left px-4 py-4">Extent</th>
-                        <th class="bg-blue-100 border text-left px-4 py-4">Subject</th>
-                        <th class="bg-blue-100 border text-left px-4 py-4">Date published</th>
-                    </tr>
-                    <tr v-for="(art, index) in this.articles" :key="index">
-                        <td class="border px-4 py-2">{{art.doi}}</td>
-                        <td class="border px-4 py-2">{{art.extent}}</td>
-                        <td class="border px-4 py-2">{{art.subject.domain}}<br />{{art.subject.field}}</td>
-                        <td class="border px-4 py-2">{{art.datepublished}}</td>
-                    </tr>
-                </table -->
-
                 <div class="lg:col-span-12"> 
                     &nbsp;
                 </div>            
@@ -36,6 +21,10 @@
                     <button type="button" id='saveButton' class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-20 py-5 text-center mr-2 mb-2">
                         Export to PNG
                     </button>
+
+                    <button type="button" id='saveCSV' class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-20 py-5 text-center mr-2 mb-2">
+                        Download CSV file
+                    </button>
                 </div>
 
             </section>
@@ -48,7 +37,7 @@ import * as d3 from "d3";
 import util from '~/assets/js/util.js';
 
 const fs = require("fs");
-
+const converter = require('json-2-csv');
 
 export default {
     head() {
@@ -103,8 +92,8 @@ export default {
     },
     
     mounted() {
-        this.generateBars(); //https://www.freecodecamp.org/news/d3js-tutorial-data-visualization-for-beginners/
-        console.timeEnd("D3");
+        this.generateBars();
+        console.timeEnd("D3"); // this is for measuring the time for loading the page. This is the only page the timer is present.
     },
     methods: { 
        
@@ -182,6 +171,17 @@ export default {
                 function save( dataBlob, filesize ){
                     saveAs( dataBlob, '10.12.DatasetsPerYearCumulative.png' ); // FileSaver.js function
                 }
+            });
+            // Set-up the export CSV button
+            const array_articles4csv = this.articles;
+            d3.select('#saveCSV').on('click', function(){
+                // convert JSON array to CSV string
+                converter.json2csv(array_articles4csv, (err, csv) => {
+                    if (err) {
+                        throw err;
+                    }
+                    saveAs(new Blob([csv], { type: "application/json;charset=utf-8" }), 'dataSourceOfCharts.csv');
+                });
             });
 
             // add title
