@@ -24,14 +24,22 @@
                     &nbsp;
                 </div>            
 
+                <!-- Create a div where the graph will take place -->
                 <div class="lg:col-span-12"> 
                     <svg id="d3_demo"></svg>
                 </div>
 
                 &nbsp;
 
-                <!-- Create a div where the graph will take place -->
-                <div id="my_dataviz"></div>
+                <div id="my_dataviz" class="lg:col-span-12 flex space-x-2 justify-center">
+                    <button type="button" id='saveButton' class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-20 py-5 text-center mr-2 mb-2">
+                        Export to PNG
+                    </button>
+
+                    <button type="button" id='saveCSV' class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-20 py-5 text-center mr-2 mb-2">
+                        Download CSV file
+                    </button>
+                </div>
 
             </section>
         <NirdFooter />
@@ -43,8 +51,26 @@ import * as d3 from "d3";
 import util from '~/assets/js/util.js';
 
 const fs = require("fs");
+const converter = require('json-2-csv');
 
 export default {
+    head() {
+      return {
+        script: [
+          {
+                src: 'https://cdn.rawgit.com/eligrey/canvas-toBlob.js/f1a01896135ab378aa5c0118eadd81da55e698d8/canvas-toBlob.js'
+          },
+          {
+                src: 'https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js'
+          },
+          {
+                src: '/export2png.js'
+          }
+        ],
+      }
+    },
+
+
     data() {
         return {
             articles: [],
@@ -52,6 +78,8 @@ export default {
             linkNext_Page: ""
         }
     },
+    
+    
     async fetch() {
         if(!this.checkCacheSync()){
             //await fetch("https://staging.web.archive-api.sigma2.no/api/list/dataset/doi/").then((res) => res.json().then((r) => {
@@ -147,6 +175,28 @@ export default {
             width = document.querySelector("body").clientWidth,
             height = 800;
             const svg = d3.select("#d3_demo").attr("viewBox", [0, 0, width, height]);
+            
+            // Set-up the export button
+            d3.select('#saveButton').on('click', function(){
+                var svgString = getSVGString(svg.node());
+                svgString2Image( svgString, 2*width, 2*height, 'png', save ); // passes Blob and filesize String to the callback
+
+                function save( dataBlob, filesize ){
+                    saveAs( dataBlob, 'D3 vis exported to PNG.png' ); // FileSaver.js function
+                }
+            });
+            // Set-up the export CSV button
+            const array_articles4csv = this.articles;
+            d3.select('#saveCSV').on('click', function(){
+                // convert JSON array to CSV string
+                converter.json2csv(array_articles4csv, (err, csv) => {
+                    if (err) {
+                        throw err;
+                    }
+                    saveAs(new Blob([csv], { type: "application/json;charset=utf-8" }), 'dataSourceOfCharts.csv');
+                });
+            });
+
 
             // add title
             svg
@@ -221,6 +271,36 @@ export default {
             x_scale.domain(dateNew.map((d) => d.datepublished));
             y_scale.domain([0, d3.max(dateNew, (d) => d.occurences) * 1.65 ]); // I have multiplied wiht 1.65 becouse we need a higher Oy axis to keep the title of the chart visible and clean
 
+
+            // create a tooltip
+            var tooltip = svg.append("line")
+                .style("stroke", "#98A3C3")
+                .style("stroke-width", 1)
+                .style("opacity", 0)
+                .attr("y1", height - 55);
+
+            var tooltip2 =  svg.append('line')
+                .style("stroke", "#98A3C3")
+                .style("stroke-width", 1)
+                .style("opacity", 0)
+                .attr("x1", 90);
+
+            var tooltip3bkgr = svg.append("ellipse")
+                .attr("cx", 250)
+                .attr("cy", 50)
+                .attr("rx", 10)
+                .attr("ry", 8)
+                .attr("fill", "green")
+                .style("opacity", 0);
+
+            var tooltip3 = svg.append("text")
+                .attr("x", 36)
+                .attr("y", margin.top + 66)
+                .style("text-anchor", "center")
+                .style("opacity", 0)
+                .text("More information here");
+
+
             // Add the circles
             svg.selectAll("myCircles")
             .data(dateNew)
@@ -230,27 +310,74 @@ export default {
                 .attr("stroke", "none")
                 .attr("cx", (d) => x_scale(d.datepublished) + x_scale.bandwidth()/2)
                 .attr("cy", (d) => y_scale(d.occurences))
-                .attr("r", 8);
-                //.attr("r", x_scale.bandwidth()/40);
+                .attr("r", 8)
+                .attr("lbl_d_datepublished", (d)=>d.datepublished)
+                .attr("lbl_d_occurences", (d)=>d.occurences)
+                .on("mouseover", function(d) {
+                    tooltip.transition()		
+                        .duration(200)
+                        .style("opacity", 0.8)
+                        .attr("y2", parseInt(d3.select(this).attr("cy"))+15)
+                        .attr("x1", d3.select(this).attr("cx"))
+                        .attr("x2", parseInt(d3.select(this).attr("cx")));
+                    tooltip2.transition()		
+                        .duration(200)		
+                        .style("opacity", 0.8)
+                        .attr("y1", parseInt(d3.select(this).attr("cy")))
+                        .attr("x2", parseInt(d3.select(this).attr("cx"))-15)
+                        .attr("y2", parseInt(d3.select(this).attr("cy")));                    
+                    tooltip3bkgr.transition()
+                        .duration(80)
+                        .attr("cx", d3.select(this).attr("cx"))
+                        .attr("cy", parseInt(d3.select(this).attr("cy"))-57)
+                        .attr("rx", 170)
+                        .attr("ry", 40)
+                        .attr("fill", "white")
+                        .style("box-shadow", "2px 1px 1px #454512")
+                        .style("opacity", 0.5);
+                    tooltip3.transition(d)
+                        .duration(100)
+                        .style("opacity", 0.8)
+                        .attr("y", parseInt(d3.select(this).attr("cy"))-45)
+                        .attr("x", parseInt(d3.select(this).attr("cx"))-147)
+                        .attr("font-family", "Saira")
+                        .attr("font-weight", "bold")
+                        .style("font-size", "31px")
+                        .style("fill", "#454512")                      
+                        .text(Math.ceil(d3.select(this).attr("lbl_d_occurences")) + " datasets / " + d3.select(this).attr("lbl_d_datepublished"));
+                    })
+                .on("mouseout", function(d) {
+                    tooltip.transition()
+                        .duration(1000)
+                        .style("opacity", 0);
+                    tooltip2.transition()
+                        .duration(1500)
+                        .style("opacity", 0);                    
+                    tooltip3bkgr.transition()
+                        .duration(2400)
+                        .style("opacity", 0);
+                    tooltip3.transition()
+                        .duration(2800)
+                        .style("opacity", 0);
+                });
             
-
             // append x axis
             svg
             .append("g")
             .attr("transform", `translate(0,${height - margin.bottom})`)
-            .call(x_axis)
+            .call(x_axis.tickValues(x_scale.domain().filter(function(d,i){ return !(i%20)})))  /// this is to show only few data labels on x axis
             .selectAll("text")
             .style("text-anchor", "middle")
-            .style("font-size", "24px")
-            .style("letter-spacing", "-1px")
-            .attr("dx", "0.2em")
-            .attr("dy", "1.80em")
-            .attr("transform", "rotate(0)");
+            .style("font-size", "12px")
+            .attr("dx", "-1.6em")
+            .attr("dy", "1.10em")
+            .attr("transform", "rotate(-25)");
+
 
             // add y axis
             svg.append("g")
             .attr("transform", `translate(${margin.left},0)`)
-            .style("font-size", "22px")
+            .style("font-size", "20px")
             .style("color", "#87A3C3")
             .call(y_axis);
 

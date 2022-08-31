@@ -5,33 +5,28 @@
                 <h2 class="lg:col-span-9 mb-3 text-current font-medium text-4xl">View Stats</h2>
                 <span class="lg:col-span-3 mb-2 lg:mb-0"> </span>           
 
-                <!--table class="shadow-lg bg-white lg:col-span-12">
-                    <tr>
-                        <th class="bg-blue-100 border text-left px-4 py-4">DOI</th>
-                        <th class="bg-blue-100 border text-left px-4 py-4">Extent</th>
-                        <th class="bg-blue-100 border text-left px-4 py-4">Subject</th>
-                        <th class="bg-blue-100 border text-left px-4 py-4">Date published</th>
-                    </tr>
-                    <tr v-for="(art, index) in this.articles" :key="index">
-                        <td class="border px-4 py-2">{{art.doi}}</td>
-                        <td class="border px-4 py-2">{{art.extent}}</td>
-                        <td class="border px-4 py-2">{{art.subject.domain}}<br />{{art.subject.field}}</td>
-                        <td class="border px-4 py-2">{{art.datepublished}}</td>
-                    </tr>
-                </table -->
 
                 <div class="lg:col-span-12"> 
                     &nbsp;
                 </div>            
 
+                <!-- Create a div where the graph will take place -->
                 <div class="lg:col-span-12"> 
                     <svg id="d3_demo"></svg>
                 </div>
 
                 &nbsp;
 
-                <!-- Create a div where the graph will take place -->
-                <div id="my_dataviz"></div>
+                <!-- The button for export in PNG file -->
+                <div id="my_dataviz" class="lg:col-span-12 flex space-x-2 justify-center">
+                    <button type="button" id='saveButton' class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-20 py-5 text-center mr-2 mb-2">
+                        Export to PNG
+                    </button>
+
+                    <button type="button" id='saveCSV' class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-20 py-5 text-center mr-2 mb-2">
+                        Download CSV file
+                    </button>
+                </div>
 
             </section>
         <NirdFooter />
@@ -43,9 +38,26 @@ import * as d3 from "d3";
 import util from '~/assets/js/util.js';
 
 const fs = require("fs");
-
+const converter = require('json-2-csv');
 
 export default {
+    head() {
+      return {
+        script: [
+          {
+                src: 'https://cdn.rawgit.com/eligrey/canvas-toBlob.js/f1a01896135ab378aa5c0118eadd81da55e698d8/canvas-toBlob.js'
+          },
+          {
+                src: 'https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js'
+          },
+          {
+                src: '/export2png.js'
+          }
+        ],
+      }
+    },
+
+
     data() {
         return {
             articles: [],
@@ -152,6 +164,27 @@ export default {
             height = 800;
             const svg = d3.select("#d3_demo").attr("viewBox", [0, 0, width, height]);
 
+            // Set-up the export button
+            d3.select('#saveButton').on('click', function(){
+                var svgString = getSVGString(svg.node());
+                svgString2Image( svgString, 2*width, 2*height, 'png', save ); // passes Blob and filesize String to the callback
+                
+                function save( dataBlob, filesize ){
+                    saveAs( dataBlob, '10.02.DatasetsPerMonthCumulative.png' ); // FileSaver.js function
+                }
+            });
+            // Set-up the export CSV button
+            const array_articles4csv = this.articles;
+            d3.select('#saveCSV').on('click', function(){
+                // convert JSON array to CSV string
+                converter.json2csv(array_articles4csv, (err, csv) => {
+                    if (err) {
+                        throw err;
+                    }
+                    saveAs(new Blob([csv], { type: "application/json;charset=utf-8" }), 'dataSourceOfCharts.csv');
+                });
+            });
+
             // add title
             svg
             .append("text")
@@ -164,7 +197,7 @@ export default {
             .style("font-weight", "bold")
             .style("text-shadow", "0 1px 5px #FFFFFF")
             .attr("fill", "#FFB500")
-            .text("Total Datasets");
+            .text("Total Datasets (cumulative) / Month");
                        
             // Add the text label for the y axis
             svg.append("text")
@@ -196,6 +229,34 @@ export default {
             const y_scale = d3.scaleLinear().range([height - margin.bottom, margin.top]); 
             let x_axis = d3.axisBottom(x_scale);
             let y_axis = d3.axisLeft(y_scale); 
+
+            // create a tooltip
+            var tooltip = svg.append("line")
+                .style("stroke", "#98A3C3")
+                .style("stroke-width", 1)
+                .style("opacity", 0)
+                .attr("y1", height - 60);
+
+            var tooltip2 =  svg.append('line')
+                .style("stroke", "#98A3C3")
+                .style("stroke-width", 1)
+                .style("opacity", 0)
+                .attr("x1", 90);
+
+            var tooltip3bkgr = svg.append("ellipse")
+                .attr("cx", 250)
+                .attr("cy", 50)
+                .attr("rx", 10)
+                .attr("ry", 8)
+                .attr("fill", "green")
+                .style("opacity", 0);
+
+            var tooltip3 = svg.append("text")
+                .attr("x", 36)
+                .attr("y", margin.top + 66)
+                .style("text-anchor", "center")
+                .style("opacity", 0)
+                .text("More information here");
             
             var data = this.articles;
             data.sort((a, b) => {
@@ -230,15 +291,67 @@ export default {
                 .attr("stroke", "none")
                 .attr("cx", (d) => x_scale(d.datepublished) + x_scale.bandwidth()/2)
                 .attr("cy", (d) => y_scale(d.occurences))
-                .attr("r", 5);
+                .attr("r", 10)
+                .attr("lbl_d_datepublished", (d)=>d.datepublished)
+                .attr("lbl_d_occurences", (d)=>d.occurences)
+                .on("mouseover", function(d) {                    
+                    
+                    tooltip2.transition()		
+                        .duration(200)		
+                        .style("opacity", 0.8)
+                        .attr("y1", d3.select(this).attr("cy"))
+                        .attr("x2", d3.select(this).attr("cx"))
+                        .attr("y2", d3.select(this).attr("cy"));
+
+                    tooltip.transition()		
+                        .duration(200)		
+                        .style("opacity", 0.8)
+                        .attr("y2", d3.select(this).attr("cy"))
+                        .attr("x1", d3.select(this).attr("cx"))
+                        .attr("x2", d3.select(this).attr("cx"));
+
+                    tooltip3bkgr.transition()
+                        .duration(80)
+                        .attr("cx", d3.select(this).attr("cx"))
+                        .attr("cy", parseInt(d3.select(this).attr("cy"))-57)
+                        .attr("rx", 170)
+                        .attr("ry", 40)
+                        .attr("fill", "white")
+                        .style("box-shadow", "2px 1px 1px #454512")
+                        .style("opacity", 0.5);
+
+                    tooltip3.transition(d)
+                        .duration(100)
+                        .style("opacity", 0.8)
+                        .attr("y", parseInt(d3.select(this).attr("cy"))-45)
+                        .attr("x", parseInt(d3.select(this).attr("cx"))-147)
+                        .attr("font-family", "Saira")
+                        .attr("font-weight", "bold")
+                        .style("font-size", "31px")
+                        .style("fill", "#454512")                      
+                        .text(Math.ceil(d3.select(this).attr("lbl_d_occurences")) + " datasets / " + d3.select(this).attr("lbl_d_datepublished"));
+
+                    })					
+                    .on("mouseout", function(d) {
+                        tooltip.transition()
+                            .duration(800)
+                            .style("opacity", 0);
+                        tooltip2.transition()
+                            .duration(800)
+                            .style("opacity", 0);
+                        tooltip3bkgr.transition()
+                            .duration(2200)
+                            .style("opacity", 0);
+                        tooltip3.transition()
+                            .duration(2200)
+                            .style("opacity", 0);
+                    });
                 //.attr("r", x_scale.bandwidth()/40);
-            
 
             // append x axis
-            svg
-            .append("g")
+            svg.append("g")
             .attr("transform", `translate(0,${height - margin.bottom})`)
-            .call(x_axis)
+            .call(x_axis.tickValues(x_scale.domain().filter(function(d,i){ return !(i%10) })))
             .selectAll("text")
             .style("text-anchor", "middle")
             .style("font-size", "16px")

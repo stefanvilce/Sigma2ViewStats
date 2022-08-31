@@ -5,6 +5,7 @@
     "@nuxtjs/tailwindcss": "^5.0.0-4",
     "d3": "^7.3.0",
     "fs": "^0.0.1-security",
+    "json-2-csv": "^3.17.1",
     "nuxt": "^2.13.3"
   },
   "scripts": {

@@ -1,5 +1,5 @@
 {
-  "createdAtDateTime": "2022-06-15T09:19:40.913Z",
+  "createdAtDateTime": "2022-08-30T10:56:32.980Z",
   "description": "This json file keeps the data we took from REST APIs and it is used as a CACHE on the server side.",
   "data": [
     {
@@ -537,12 +537,6 @@
       "datepublished": "2014-07-31"
     },
     {
-      "doi": "10.11582/2021.00068",
-      "extent": 3801759971238,
-      "subject": "NATURAL_SCIENCE - Meteorology",
-      "datepublished": "2021-08-25"
-    },
-    {
       "doi": "10.11582/2014.00002",
       "extent": 2091859676,
       "subject": "NATURAL_SCIENCE - Neuroscience",
@@ -643,6 +637,12 @@
       "extent": 4646386395500,
       "subject": "NATURAL_SCIENCE - Geophysics",
       "datepublished": "2021-11-23"
+    },
+    {
+      "doi": "10.11582/2021.00068",
+      "extent": 3880821640328,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2021-08-25"
     },
     {
       "doi": "10.11582/2019.00037",
@@ -1653,12 +1653,6 @@
       "datepublished": "2018-01-05"
     },
     {
-      "doi": "10.11582/2021.00072",
-      "extent": 753619773,
-      "subject": "NATURAL_SCIENCE - Medical Imaging",
-      "datepublished": "2021-09-06"
-    },
-    {
       "doi": "10.11582/2020.00024",
       "extent": 2541129,
       "subject": "NATURAL_SCIENCE - Environmental science",
@@ -2121,10 +2115,40 @@
       "datepublished": "2022-03-09"
     },
     {
+      "doi": "10.11582/2022.00035",
+      "extent": 8903701382,
+      "subject": "SOCIAL_SCIENCE - Agricultural economics",
+      "datepublished": "2022-06-30"
+    },
+    {
+      "doi": "10.11582/2021.00072",
+      "extent": 764970411,
+      "subject": "NATURAL_SCIENCE - Medical Imaging",
+      "datepublished": "2021-09-06"
+    },
+    {
+      "doi": "10.11582/2022.00034",
+      "extent": 357397422585,
+      "subject": "NATURAL_SCIENCE - Meteorology",
+      "datepublished": "2022-06-24"
+    },
+    {
+      "doi": "10.11582/2022.00037",
+      "extent": 36119774864,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2022-07-26"
+    },
+    {
       "doi": "10.11582/2017.00009",
       "extent": 299919,
       "subject": "NATURAL_SCIENCE - Hydrology",
       "datepublished": "2017-08-01"
+    },
+    {
+      "doi": "10.11582/2022.00036",
+      "extent": 675494459854,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2022-07-05"
     },
     {
       "doi": "10.11582/2021.00134",
@@ -2155,6 +2179,12 @@
       "extent": 2171648139425,
       "subject": "NATURAL_SCIENCE - Oceanography",
       "datepublished": "2015-05-13"
+    },
+    {
+      "doi": "10.11582/2021.00100",
+      "extent": 1360895785566,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2021-11-20"
     },
     {
       "doi": "10.11582/2018.00035",
@@ -2209,6 +2239,12 @@
       "extent": 1463562146227,
       "subject": "NATURAL_SCIENCE - Geophysics",
       "datepublished": "2021-11-24"
+    },
+    {
+      "doi": "10.11582/2022.00038",
+      "extent": 3273098120057,
+      "subject": "NATURAL_SCIENCE - Neuroscience",
+      "datepublished": "2022-08-04"
     },
     {
       "doi": "10.11582/2020.00053",
@@ -2311,12 +2347,6 @@
       "extent": 572858296144,
       "subject": "NATURAL_SCIENCE - Geophysics",
       "datepublished": "2021-11-24"
-    },
-    {
-      "doi": "10.11582/2021.00100",
-      "extent": 853269981203,
-      "subject": "NATURAL_SCIENCE - Neuroscience",
-      "datepublished": "2021-11-20"
     },
     {
       "doi": "10.11582/2021.00121",
