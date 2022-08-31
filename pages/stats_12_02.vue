@@ -123,7 +123,7 @@ export default {
                             subject: r.Subject[0].Domain + " - " + r.Subject[0].Subfield,  
                             datepublished: r.Published.substring(0, 10)
                             };
-                        this.articles.push(getArticle);                    
+                        this.articles.push(getArticle);
                     }
                     console.log("We read the page no: " + articles.Page);
                 }).then(this.getLink);
@@ -139,7 +139,7 @@ export default {
                 createdAtDateTime: today,
                 description: 'This json file keeps the data we took from REST APIs and it is used as a CACHE on the server side.',
                 data: this.articles
-            };            
+            };
             let data = JSON.stringify(cacheResponse, null, 2);
             fs.writeFile('data/cacheResponse.json', data, (err) => {
                 if (err) throw err;

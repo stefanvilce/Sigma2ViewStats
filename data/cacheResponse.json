@@ -1,5 +1,5 @@
 {
-  "createdAtDateTime": "2022-08-24T12:43:14.844Z",
+  "createdAtDateTime": "2022-08-30T10:56:32.980Z",
   "description": "This json file keeps the data we took from REST APIs and it is used as a CACHE on the server side.",
   "data": [
     {
@@ -1653,12 +1653,6 @@
       "datepublished": "2018-01-05"
     },
     {
-      "doi": "10.11582/2021.00072",
-      "extent": 753619773,
-      "subject": "NATURAL_SCIENCE - Medical Imaging",
-      "datepublished": "2021-09-06"
-    },
-    {
       "doi": "10.11582/2020.00024",
       "extent": 2541129,
       "subject": "NATURAL_SCIENCE - Environmental science",
@@ -2125,6 +2119,12 @@
       "extent": 8903701382,
       "subject": "SOCIAL_SCIENCE - Agricultural economics",
       "datepublished": "2022-06-30"
+    },
+    {
+      "doi": "10.11582/2021.00072",
+      "extent": 764970411,
+      "subject": "NATURAL_SCIENCE - Medical Imaging",
+      "datepublished": "2021-09-06"
     },
     {
       "doi": "10.11582/2022.00034",
