@@ -1,6 +1,6 @@
 <template>
     <header class="nird-header p-4">
-        <a href="/">
+        <a href="/" target="_self">
             <span class="nird-logo-text1">NIRD</span>
             <span class="nird-logo-text2">RESEARCH DATA ARCHIVE</span>
         </a>
