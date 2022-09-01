@@ -95,8 +95,7 @@ export default {
 
         async getLink(){
             var linkNext_Page = this.linkNext_Page;
-            if(linkNext_Page.length > 5){ // it has be not null or not Equal with "NULL"
-                console.log("Linkul este mai mare decat 5");
+            if(linkNext_Page.length > 1){ // it has be not null or not Equal with "NULL"
                 await fetch(linkNext_Page).then((res) => res.json().then((r) => {
                     this.linkNext_Page = r.Next_Page;
                     return r;
