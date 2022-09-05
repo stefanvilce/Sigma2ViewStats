@@ -78,7 +78,20 @@ export default {
             linkNext_Page: ""
         }
     },
-    
+
+    head: {
+        title: 'NIRD - ViewStatistics, No. of Datasets / Published date',
+        meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+            hid: 'description',
+            name: 'description',
+            content: 'NIRD - ViewStatistics, No. of Datasets / Published date, not cumulative'
+        }
+        ],
+        link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    },
     
     async fetch() {
         if(!this.checkCacheSync()){

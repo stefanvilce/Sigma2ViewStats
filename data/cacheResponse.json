@@ -1,5 +1,5 @@
 {
-  "createdAtDateTime": "2022-08-31T11:23:33.542Z",
+  "createdAtDateTime": "2022-09-05T08:14:03.764Z",
   "description": "This json file keeps the data we took from REST APIs and it is used as a CACHE on the server side.",
   "data": [
     {
@@ -643,6 +643,12 @@
       "extent": 3880821640328,
       "subject": "NATURAL_SCIENCE - Meteorology",
       "datepublished": "2021-08-25"
+    },
+    {
+      "doi": "10.11582/2022.00039",
+      "extent": 60036176436,
+      "subject": "NATURAL_SCIENCE - Oceanography",
+      "datepublished": "2022-08-31"
     },
     {
       "doi": "10.11582/2019.00037",
