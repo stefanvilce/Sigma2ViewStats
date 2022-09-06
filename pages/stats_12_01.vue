@@ -59,6 +59,21 @@ export default {
         }
     },
 
+    
+    head: {
+        title: 'NIRD - ViewStatistics, The size (extent) of each dataset / month, Not Cumulative',
+        meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+            hid: 'description',
+            name: 'description',
+            content: 'NIRD - ViewStatistics, The size (extent) of each dataset / month, NOT Cumulative'
+        }
+        ],
+        link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    },
+
 
     async fetch() {
         if(!this.checkCacheSync()){

@@ -61,6 +61,21 @@ export default {
     },
 
 
+    head: {
+        title: 'NIRD - ViewStatistics, Total size EXTENT / Month Cumulative',
+        meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+            hid: 'description',
+            name: 'description',
+            content: 'NIRD - ViewStatistics, Total size EXTENT / Published Month, Cumulative'
+        }
+        ],
+        link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    },
+
+
     async fetch() {
         if(!this.checkCacheSync()){
             //await fetch("https://staging.web.archive-api.sigma2.no/api/list/dataset/doi/").then((res) => res.json().then((r) => {
