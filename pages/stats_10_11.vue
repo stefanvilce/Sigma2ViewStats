@@ -3,8 +3,7 @@
         <NirdHeader />
             <section class="container lg:w-4/5 mt-5 mb-10 rounded-md border-2 bg-gray-200 grid grid-flow-row-dense lg:grid-cols-12 p-4 shadow-md">
                 <h2 class="lg:col-span-9 mb-3 text-current font-medium text-4xl">View Stats</h2>
-                <span class="lg:col-span-3 mb-2 lg:mb-0"> </span>           
-
+                <span class="lg:col-span-3 mb-2 lg:mb-0"> </span>
                 
                 <div class="lg:col-span-12"> 
                     &nbsp;
@@ -35,7 +34,7 @@
 </template>
 <script>
 import * as d3 from "d3";
-import util from '~/assets/js/util.js';
+import Util from '~/assets/js/util.js';
 
 const fs = require("fs");
 const converter = require('json-2-csv');
@@ -85,14 +84,14 @@ export default {
     async fetch() {
         if(!this.checkCacheSync()){
             //await fetch("https://staging.web.archive-api.sigma2.no/api/list/dataset/doi/").then((res) => res.json().then((r) => {
-            await fetch("https://search-api.web.sigma2.no/norstore-archive/metadata/api/basic-search?query=*").then((res) => res.json().then((r) => {
+            await fetch(Util.linkAPI()).then((res) => res.json().then((r) => {
                 this.nr = r.Total_Documents;
                 this.linkNext_Page = r.Next_Page;
                 return r;
             })).then(async (pagina) => {
                 const articles = pagina;
                 for(var i=0; i < articles.Documents.length; i++){
-                    var r = articles.Documents[i]; // console.log(" **** RRR " + JSON.stringify(r, 4, 0));
+                    var r = articles.Documents[i];
                     var getArticle = { 
                         doi: r.Identifier, 
                         extent: r.Extent,
@@ -101,8 +100,7 @@ export default {
                         };
                     this.articles.push(getArticle);               
                 }
-            }).then(() => { console.log("We got this number of documents: " + this.nr); }).then(this.getLink).then(this.saveInCache); // I have to remember to write this.getLink or () => this.getLink(), but no this.getLink(); because it will not wait for asyncron
-            // You will be able to access articles anywhere with this.articles and loop them v-for inside your template    
+            }).then(() => { console.log("We got this number of documents: " + this.nr); }).then(this.getLink).then(this.saveInCache);
         }
     },
 
@@ -158,9 +156,9 @@ export default {
             // this function check if the CACHE file exists and if the age of the file is still good to keep the data
             // and read the data from cache file
             // the maxAge should be 24 hours == 1440 minutes
-            var jsonul = fs.readFileSync('data/cacheResponse.json','utf8');
-            let readCacheFile = JSON.parse(jsonul);
-            if(util.diffTime(readCacheFile.createdAtDateTime)){ // f.eks: "2022-06-08T09:06:03.075Z"
+            var json = fs.readFileSync('data/cacheResponse.json','utf8');
+            let readCacheFile = JSON.parse(json);
+            if(Util.diffTime(readCacheFile.createdAtDateTime)){ // f.eks: "2022-06-08T09:06:03.075Z"
                 console.log("We get the data from cache file.");
                 this.articles = readCacheFile.data;
                 return true;
@@ -292,7 +290,7 @@ export default {
             dateNew.forEach((d) => (d.occurences = +d.occurences));
             // Scale the range of the data in the domains
             x_scale.domain(dateNew.map((d) => d.datepublished));
-            y_scale.domain([0, d3.max(dateNew, (d) => d.occurences) * 1.25 ]); // I have multiplied wiht 1.65 becouse we need a higher Oy axis to keep the title of the chart visible and clean
+            y_scale.domain([0, d3.max(dateNew, (d) => d.occurences) * 1.25 ]); // I have multiplied with 1.65 because we need a higher Oy axis to keep the title of the chart visible and clean
 
             // Add the circles
             svg.selectAll("myCircles")

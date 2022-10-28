@@ -1,7 +1,6 @@
-const util = {
-    alerting () {
-        console.log("Test function");
-    },
+const Util = {
+   
+    linkAPI: () => "https://search-api.web.sigma2.no/norstore-archive/metadata/api/basic-search?query=*",
     
     diffTime(dt) {
         //measuring the time since the CACHE file was created
@@ -16,6 +15,7 @@ const util = {
             return true; // the CACHE is too young; so it still can be used
         }
     }
+
 }
 
-export default util
+export default Util

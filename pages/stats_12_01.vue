@@ -28,7 +28,7 @@
 </template>
 <script>
 import * as d3 from "d3";
-import util from '~/assets/js/util.js';
+import Util from '~/assets/js/util.js';
 
 const fs = require("fs");
 const converter = require('json-2-csv');
@@ -77,8 +77,7 @@ export default {
 
     async fetch() {
         if(!this.checkCacheSync()){
-            //await fetch("https://staging.web.archive-api.sigma2.no/api/list/dataset/doi/").then((res) => res.json().then((r) => {
-            await fetch("https://search-api.web.sigma2.no/norstore-archive/metadata/api/basic-search?query=*").then((res) => res.json().then((r) => {
+            await fetch(Util.linkAPI()).then((res) => res.json().then((r) => {
                 this.nr = r.Total_Documents;
                 this.linkNext_Page = r.Next_Page;
                 return r;
@@ -94,8 +93,7 @@ export default {
                         };
                     this.articles.push(getArticle);               
                 }
-            }).then(() => { console.log("We got this number of documents: " + this.nr); }).then(this.getLink).then(this.saveInCache); // I have to remember to write this.getLink or () => this.getLink(), but no this.getLink(); because it will not wait for asyncron  
-            // You will be able to access articles anywhere with this.articles and loop them v-for inside your template
+            }).then(() => { console.log("We got this number of documents: " + this.nr); }).then(this.getLink).then(this.saveInCache);
         }
     },
 
@@ -152,9 +150,9 @@ export default {
             // this function check if the CACHE file exists and if the age of the file is still good to keep the data
             // and read the data from cache file
             // the maxAge should be 24 hours == 1440 minutes
-            var jsonul = fs.readFileSync('data/cacheResponse.json','utf8');
-            let readCacheFile = JSON.parse(jsonul);
-            if(util.diffTime(readCacheFile.createdAtDateTime)){ 
+            var json = fs.readFileSync('data/cacheResponse.json','utf8');
+            let readCacheFile = JSON.parse(json);
+            if(Util.diffTime(readCacheFile.createdAtDateTime)){ 
                 console.log("We get the data from cache file.");
                 this.articles = readCacheFile.data;
                 return true;
@@ -164,7 +162,6 @@ export default {
             }
         },
 
-        //https://www.freecodecamp.org/news/d3js-tutorial-data-visualization-for-beginners/
         generateBars() {
             // set the dimensions and margins of the graph
             const margin = { top: 40, right: 50, bottom: 55, left: 90 },
@@ -270,7 +267,6 @@ export default {
             .attr("stroke-width", 2.2)
             .attr("d", d3.line()
                 .x(function(d) { return x_scale(d.datepublished) + x_scale.bandwidth()/2 })
-                //.x(function(d) { return x_scale(d.datepublished) })
                 .y(function(d) { return y_scale(d.extent) })
             );
 

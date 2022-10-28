@@ -1,5 +1,5 @@
 {
-  "createdAtDateTime": "2022-09-06T08:35:40.523Z",
+  "createdAtDateTime": "2022-10-28T11:27:46.383Z",
   "description": "This json file keeps the data we took from REST APIs and it is used as a CACHE on the server side.",
   "data": [
     {
@@ -61,6 +61,12 @@
       "extent": 11787768237945,
       "subject": "NATURAL_SCIENCE - Geophysics",
       "datepublished": "2017-10-30"
+    },
+    {
+      "doi": "10.11582/2022.00055",
+      "extent": 418297,
+      "subject": "NATURAL_SCIENCE - Biochemistry",
+      "datepublished": "2022-10-20"
     },
     {
       "doi": "10.11582/2021.00017",
@@ -645,10 +651,22 @@
       "datepublished": "2021-08-25"
     },
     {
+      "doi": "10.11582/2022.00042",
+      "extent": 1824213861,
+      "subject": "NATURAL_SCIENCE - Materials science",
+      "datepublished": "2022-09-26"
+    },
+    {
       "doi": "10.11582/2022.00039",
-      "extent": 60036176436,
+      "extent": 60040908663,
       "subject": "NATURAL_SCIENCE - Oceanography",
       "datepublished": "2022-08-31"
+    },
+    {
+      "doi": "10.11582/2022.00049",
+      "extent": 382498,
+      "subject": "NATURAL_SCIENCE - Biochemistry",
+      "datepublished": "2022-10-20"
     },
     {
       "doi": "10.11582/2019.00037",
@@ -1935,12 +1953,6 @@
       "datepublished": "2021-09-24"
     },
     {
-      "doi": "10.11582/2021.00080",
-      "extent": 135393,
-      "subject": "NATURAL_SCIENCE - Geomorphology",
-      "datepublished": "2021-09-29"
-    },
-    {
       "doi": "10.11582/2021.00145",
       "extent": 4420887407216,
       "subject": "NATURAL_SCIENCE - Meteorology",
@@ -2139,10 +2151,58 @@
       "datepublished": "2022-06-24"
     },
     {
+      "doi": "10.11582/2022.00040",
+      "extent": 1927119461,
+      "subject": "NATURAL_SCIENCE - ",
+      "datepublished": "2022-09-08"
+    },
+    {
       "doi": "10.11582/2022.00037",
       "extent": 36119774864,
       "subject": "NATURAL_SCIENCE - Oceanography",
       "datepublished": "2022-07-26"
+    },
+    {
+      "doi": "10.11582/2021.00080",
+      "extent": 135393,
+      "subject": "NATURAL_SCIENCE - Geomorphology",
+      "datepublished": "2021-09-29"
+    },
+    {
+      "doi": "10.11582/2022.00043",
+      "extent": 2670380970182,
+      "subject": "NATURAL_SCIENCE - Climate science",
+      "datepublished": "2022-09-29"
+    },
+    {
+      "doi": "10.11582/2022.00044",
+      "extent": 171956,
+      "subject": "NATURAL_SCIENCE - Marine Biology",
+      "datepublished": "2022-09-30"
+    },
+    {
+      "doi": "10.11582/2022.00045",
+      "extent": 806743,
+      "subject": "NATURAL_SCIENCE - Marine Biology",
+      "datepublished": "2022-09-30"
+    },
+    {
+      "doi": "10.11582/2022.00046",
+      "extent": 437404823268,
+      "subject": "NATURAL_SCIENCE - Bioinformatics",
+      "datepublished": "2022-09-30"
+    },
+    {
+      "doi": "10.11582/2022.00047",
+      "extent": 265232,
+      "subject": "NATURAL_SCIENCE - Zoology",
+      "datepublished": "2022-10-13"
+    },
+    {
+      "doi": "10.11582/2022.00048",
+      "extent": 282543,
+      "subject": "NATURAL_SCIENCE - Biochemistry",
+      "datepublished": "2022-10-20"
     },
     {
       "doi": "10.11582/2017.00009",
@@ -2437,6 +2497,36 @@
       "extent": 16502903789764,
       "subject": "NATURAL_SCIENCE - Neuroscience",
       "datepublished": "2022-06-14"
+    },
+    {
+      "doi": "10.11582/2022.00052",
+      "extent": 319701,
+      "subject": "NATURAL_SCIENCE - Biochemistry",
+      "datepublished": "2022-10-20"
+    },
+    {
+      "doi": "10.11582/2022.00053",
+      "extent": 363056,
+      "subject": "NATURAL_SCIENCE - Biochemistry",
+      "datepublished": "2022-10-20"
+    },
+    {
+      "doi": "10.11582/2022.00051",
+      "extent": 913909,
+      "subject": "NATURAL_SCIENCE - Biochemistry",
+      "datepublished": "2022-10-20"
+    },
+    {
+      "doi": "10.11582/2022.00054",
+      "extent": 530534,
+      "subject": "NATURAL_SCIENCE - Biochemistry",
+      "datepublished": "2022-10-20"
+    },
+    {
+      "doi": "10.11582/2022.00050",
+      "extent": 445628,
+      "subject": "NATURAL_SCIENCE - Biochemistry",
+      "datepublished": "2022-10-20"
     },
     {
       "doi": "10.11582/2021.00139",

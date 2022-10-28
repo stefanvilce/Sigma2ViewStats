@@ -40,7 +40,7 @@
 </template>
 <script>
 import * as d3 from "d3";
-import util from '~/assets/js/util.js';
+import Util from '~/assets/js/util.js';
 
 const fs = require("fs");
 
@@ -56,7 +56,7 @@ export default {
 
     async fetch() {
         if(!this.checkCacheSync()){
-            await fetch("https://search-api.web.sigma2.no/norstore-archive/metadata/api/basic-search?query=*").then((res) => res.json().then((r) => {
+            await fetch(Util.linkAPI()).then((res) => res.json().then((r) => {
                 this.nr = r.Total_Documents;
                 this.linkNext_Page = r.Next_Page;
                 return r;
@@ -72,36 +72,10 @@ export default {
                         };
                     this.articles.push(getArticle);               
                 }
-            }).then(() => { console.log("We got this number of documents: " + this.nr); }).then(this.getLink).then(this.saveInCache); // I have to remember to write this.getLink or () => this.getLink(), but no this.getLink(); because it will not wait for asyncron  
-            // You will be able to access articles anywhere with this.articles and loop them v-for inside your template
+            }).then(() => { console.log("We got this number of documents: " + this.nr); }).then(this.getLink).then(this.saveInCache);
         }
     },
 
-    /*async fetch() {
-        //await fetch("https://staging.web.archive-api.sigma2.no/api/list/dataset/doi/").then((res) => res.json().then((r) => {
-        await fetch("https://search-api.web.sigma2.no/norstore-archive/metadata/api/basic-search?query=*").then((res) => res.json().then((r) => {
-            this.nr = r.Total_Documents;
-            return r;
-        })).then(async (pagina) => {
-            const articles = pagina;
-
-            console.log(JSON.stringify(articles.Documents));
-            console.log(" No. of Documents on this Page " + articles.Documents.length);            
-            for(var i=0; i < articles.Documents.length; i++){
-                var r = articles.Documents[i]; console.log(" **** RRR " + JSON.stringify(r, 4, 0));
-                var getArticle = { 
-                    doi: r.Identifier, 
-                    extent: r.Extent,
-                    subject: r.Subject[0].Domain + " - " + r.Subject[0].Subfield,  
-                    datepublished: r.Published.substring(0, 10)
-                    };
-                this.articles.push(getArticle);
-               
-            }
-        }).then(() => { console.log("We got this number of documents: " + this.nr); }).then(this.getLink());
-        // You will be able to access articles anywhere with this.articles and loop them v-for inside your template
-    }, */
-    
     mounted() {
         this.generateBars(); //https://www.freecodecamp.org/news/d3js-tutorial-data-visualization-for-beginners/    
     },
@@ -151,9 +125,9 @@ export default {
             // this function check if the CACHE file exists and if the age of the file is still good to keep the data
             // and read the data from cache file
             // the maxAge should be 24 hours == 1440 minutes
-            var jsonul = fs.readFileSync('data/cacheResponse.json','utf8');
-            let readCacheFile = JSON.parse(jsonul);
-            if(util.diffTime(readCacheFile.createdAtDateTime)){ 
+            var json = fs.readFileSync('data/cacheResponse.json','utf8');
+            let readCacheFile = JSON.parse(json);
+            if(Util.diffTime(readCacheFile.createdAtDateTime)){ 
                 console.log("We get the data from cache file.");
                 this.articles = readCacheFile.data;
                 return true;
@@ -164,7 +138,6 @@ export default {
         },
 
 
-        //https://www.freecodecamp.org/news/d3js-tutorial-data-visualization-for-beginners/
         generateBars() {
             // set the dimensions and margins of the graph
             const margin = { top: 40, right: 50, bottom: 55, left: 90 },
@@ -225,13 +198,7 @@ export default {
             
             //The new array of objects which will build the array which shall contain the SUMS of EXTENTS until the index DATE. 
             //It means that it is summing 
-          /* var dateNew = [];
-            var previousExtent = 0;
-            for(let i=0; i<nested_data.length; i++){
-                previousExtent = previousExtent + nested_data[i].Sumextent;
-                let rec = { subject: nested_data[i].DateP, extent: previousExtent }
-                dateNew.push(rec);
-            }*/
+          
             var dateNew = [];
             for(let i=0; i<nested_data.length; i++){
                 var extentSum = nested_data[i].Sumextent;
@@ -239,16 +206,10 @@ export default {
                 dateNew.push(rec);
             }
 
-
-            // SUMARIZAREA:
-            // https://stackoverflow.com/questions/50454720/d3-grouping-and-summarization
-
             dateNew.forEach((d) => (d.extent = +d.extent/1000000000));
             // Scale the range of the data in the domains
             x_scale.domain(dateNew.map((d) => d.subject.split(' - ')[0]));
             y_scale.domain([0, d3.max(dateNew, (d) => d.extent) * 1.45]);
-
-
             
             // Add the line chart
             svg.append("path")
@@ -260,8 +221,6 @@ export default {
                 .x(function(d) { return x_scale(d.subject.split(' - ')[0]) + x_scale.bandwidth()/2 })
                 .y(function(d) { return y_scale(d.extent) })
             );
-
-
             
             // create a tooltip
             var tooltip = svg.append("line")
@@ -331,7 +290,6 @@ export default {
             .style("color", "#6576CA")
             .call(y_axis);
        },
-
     }
 }
 </script>

@@ -48,7 +48,7 @@
 </template>
 <script>
 import * as d3 from "d3";
-import util from '~/assets/js/util.js';
+import Util from '~/assets/js/util.js';
 
 const fs = require("fs");
 const converter = require('json-2-csv');
@@ -95,16 +95,14 @@ export default {
     
     async fetch() {
         if(!this.checkCacheSync()){
-            //await fetch("https://staging.web.archive-api.sigma2.no/api/list/dataset/doi/").then((res) => res.json().then((r) => {
-            await fetch("https://search-api.web.sigma2.no/norstore-archive/metadata/api/basic-search?query=*").then((res) => res.json().then((r) => {
+            await fetch(Util.linkAPI()).then((res) => res.json().then((r) => {
                 this.nr = r.Total_Documents;
                 this.linkNext_Page = r.Next_Page;
                 return r;
             })).then(async (pagina) => {
                 const articles = pagina;
-                //console.log(JSON.stringify(articles.Documents));
                 for(var i=0; i < articles.Documents.length; i++){
-                    var r = articles.Documents[i]; console.log(" **** RRR " + JSON.stringify(r, 4, 0));
+                    var r = articles.Documents[i];
                     var getArticle = { 
                         doi: r.Identifier, 
                         extent: r.Extent,
@@ -113,13 +111,12 @@ export default {
                         };
                     this.articles.push(getArticle);               
                 }
-            }).then(() => { console.log("We got this number of documents: " + this.nr); }).then(this.getLink).then(this.saveInCache); // I have to remember to write this.getLink or () => this.getLink(), but no this.getLink(); because it will not wait for asyncron  
-            // You will be able to access articles anywhere with this.articles and loop them v-for inside your template
+            }).then(() => { console.log("We got this number of documents: " + this.nr); }).then(this.getLink).then(this.saveInCache);
         }
     },
     
     mounted() {
-        this.generateBars(); //https://www.freecodecamp.org/news/d3js-tutorial-data-visualization-for-beginners/
+        this.generateBars();
     },
     methods: { 
        
@@ -167,9 +164,9 @@ export default {
             // this function check if the CACHE file exists and if the age of the file is still good to keep the data
             // and read the data from cache file
             // the maxAge should be 24 hours == 1440 minutes
-            var jsonul = fs.readFileSync('data/cacheResponse.json','utf8');
-            let readCacheFile = JSON.parse(jsonul);
-            if(util.diffTime(readCacheFile.createdAtDateTime)){ // f.eks: "2022-06-08T09:06:03.075Z"
+            var json = fs.readFileSync('data/cacheResponse.json','utf8');
+            let readCacheFile = JSON.parse(json);
+            if(Util.diffTime(readCacheFile.createdAtDateTime)){ // f.eks: "2022-06-08T09:06:03.075Z"
                 console.log("We get the data from cache file.");
                 this.articles = readCacheFile.data;
                 return true;
@@ -180,7 +177,6 @@ export default {
         },
 
 
-        //https://www.freecodecamp.org/news/d3js-tutorial-data-visualization-for-beginners/
         generateBars() {
             // set the dimensions and margins of the graph
             const margin = { top: 40, right: 50, bottom: 55, left: 90 },
@@ -208,7 +204,6 @@ export default {
                     saveAs(new Blob([csv], { type: "application/json;charset=utf-8" }), 'dataSourceOfCharts.csv');
                 });
             });
-
 
             // add title
             svg
@@ -270,7 +265,6 @@ export default {
            
             // Counting the occurences
             var nested_data = d3.rollups(data, v => v.length, d => d.datepublished).map(([k, v]) => ({ DateP: k, Sumextent: v }));
-            //console.log(d3.rollups(data, v => v.length, d => d.datepublished));
             var dateNew = [];
             for(let i = 0; i < nested_data.length; i++){
                 var noOfOccurences = nested_data[i].Sumextent;
@@ -281,8 +275,7 @@ export default {
             dateNew.forEach((d) => (d.occurences = +d.occurences));
             // Scale the range of the data in the domains
             x_scale.domain(dateNew.map((d) => d.datepublished));
-            y_scale.domain([0, d3.max(dateNew, (d) => d.occurences) * 1.65 ]); // I have multiplied wiht 1.65 becouse we need a higher Oy axis to keep the title of the chart visible and clean
-
+            y_scale.domain([0, d3.max(dateNew, (d) => d.occurences) * 1.65 ]); // I have multiplied with 1.65 because we need a higher Oy axis to keep the title of the chart visible and clean
 
             // create a tooltip
             var tooltip = svg.append("line")

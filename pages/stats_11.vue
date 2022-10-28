@@ -29,7 +29,7 @@
 </template>
 <script>
 import * as d3 from "d3";
-import util from '~/assets/js/util.js';
+import Util from '~/assets/js/util.js';
 
 const fs = require("fs");
 const converter = require('json-2-csv');
@@ -78,15 +78,14 @@ export default {
 
     async fetch() {
         if(!this.checkCacheSync()){
-            //await fetch("https://staging.web.archive-api.sigma2.no/api/list/dataset/doi/").then((res) => res.json().then((r) => {
-            await fetch("https://search-api.web.sigma2.no/norstore-archive/metadata/api/basic-search?query=*").then((res) => res.json().then((r) => {
+            await fetch(Util.linkAPI()).then((res) => res.json().then((r) => {
                 this.nr = r.Total_Documents;
                 this.linkNext_Page = r.Next_Page;
                 return r;
             })).then(async (pagina) => {
                 const articles = pagina;
                 for(var i=0; i < articles.Documents.length; i++){
-                    var r = articles.Documents[i]; console.log(" **** RRR " + JSON.stringify(r, 4, 0));
+                    var r = articles.Documents[i];
                     var getArticle = { 
                         doi: r.Identifier, 
                         extent: r.Extent,
@@ -95,14 +94,13 @@ export default {
                         };
                     this.articles.push(getArticle);               
                 }
-            }).then(() => { console.log("We got this number of documents: " + this.nr); }).then(this.getLink).then(this.saveInCache); // I have to remember to write this.getLink or () => this.getLink(), but no this.getLink(); because it will not wait for asyncron  
-            // You will be able to access articles anywhere with this.articles and loop them v-for inside your template
+            }).then(() => { console.log("We got this number of documents: " + this.nr); }).then(this.getLink).then(this.saveInCache);
         }
     },
 
     
     mounted() {
-        this.generateBars(); //https://www.freecodecamp.org/news/d3js-tutorial-data-visualization-for-beginners/    
+        this.generateBars();
     },
 
 
@@ -153,9 +151,9 @@ export default {
             // this function check if the CACHE file exists and if the age of the file is still good to keep the data
             // and read the data from cache file
             // the maxAge should be 24 hours == 1440 minutes
-            var jsonul = fs.readFileSync('data/cacheResponse.json','utf8');
-            let readCacheFile = JSON.parse(jsonul);
-            if(util.diffTime(readCacheFile.createdAtDateTime)){ // f.eks: "2022-06-08T09:06:03.075Z"
+            var json = fs.readFileSync('data/cacheResponse.json','utf8');
+            let readCacheFile = JSON.parse(json);
+            if(Util.diffTime(readCacheFile.createdAtDateTime)){ // f.eks: "2022-06-08T09:06:03.075Z"
                 console.log("We get the data from cache file.");
                 this.articles = readCacheFile.data;
                 return true;
@@ -234,10 +232,7 @@ export default {
             const y_scale = d3.scaleLinear().range([height - margin.bottom, margin.top + 61]);
             let x_axis = d3.axisBottom(x_scale);
             let y_axis = d3.axisLeft(y_scale);
-            //y_axis.ticks(9).tickSize(-width).tickPadding(8);
             y_axis.tickPadding(10);
-            
-            
             
 
             // create a tooltip
@@ -289,14 +284,10 @@ export default {
                 dateNew.push(rec);
             }
 
-            // SUMARIZAREA:
-            // https://stackoverflow.com/questions/50454720/d3-grouping-and-summarization
-
             dateNew.forEach((d) => (d.extent = +d.extent/1000000000));
             // Scale the range of the data in the domains
             x_scale.domain(dateNew.map((d) => d.datepublished));
             y_scale.domain([0, d3.max(dateNew, (d) => d.extent) * 1.45]);
-
 
             // Add the line chart
             svg.append("path")
@@ -308,7 +299,6 @@ export default {
                 .x(function(d) { return x_scale(d.datepublished) + x_scale.bandwidth()/2 })
                 .y(function(d) { return y_scale(d.extent) })
             );
-
 
             // Add the circles
             svg.selectAll("myCircles")
@@ -370,9 +360,6 @@ export default {
                 });
           
 
-
-            // Follow this: https://bl.ocks.org/d3noob/a22c42db65eb00d4e369
-
             // add x axis labels
             svg
             .append("g")
@@ -386,7 +373,6 @@ export default {
             .attr("dy", "0.20em")
             .attr("transform", "rotate(-75)");
 
-
             // add y axis
             svg.append("g")
             .attr("transform", `translate(${margin.left},0)`)
@@ -394,9 +380,7 @@ export default {
             .style("color", "#6576CA")
             .style("letter-spacing", "-1px")
             .call(y_axis);            
-
        },
-
     }
 }
 </script>
